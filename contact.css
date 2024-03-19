@@ -1,0 +1,203 @@
+*
+{
+    margin: 0;
+    outline: none;
+
+}
+body{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-areas: "Entete Entete"
+                          "Lateral Principal"
+                          "Bas_de_Page Bas_de_Page"
+}
+/*Entete*/
+header{
+    background: linear-gradient(350deg, rgb(0, 0, 0), rgb(53, 53, 53));
+    grid-area: Entete;
+}
+header h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.boutonMenu {
+
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
+    font-weight: bold;
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    border: none;
+    background: none;
+    color: rgb(254, 254, 254);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent; /* Bord Transparent */
+    padding-bottom: 0px; 
+    border-radius: 0; /* Pas de bord Rond */
+}
+
+
+.boutonMenu:hover {
+    color: white; /* Couleur du texte en hover */
+    border-bottom-color:white; /* Couleur du bord en hover */
+    background-color:transparent; /* Couleur du fond en hover */
+}
+
+/*Bloc Principal Formulaires  */
+table
+{
+margin: auto;
+}
+
+h2{
+    text-align: center;
+    margin-right: 150px;
+    padding:5px;
+}
+.bloc1{
+    background-color:white;
+    grid-area:Principal ;
+    text-align: justify;
+    line-height:1.5;
+    padding-left: 20px;
+}
+/*formulaire*/
+textarea,
+input[type="date"],
+input[type="email"],
+input[type="text"],
+select {
+    width: 60%;
+    padding: 10px;
+    margin: 2px 5px;
+    display: inline-block;
+    border: 2px solid #150505;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+textarea {
+    vertical-align: middle;
+  }
+.Envoyer {
+    background-color: #3f3f3f;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 0px 4px 900px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #150505;
+    transition: background-color 0.3s;
+    font-weight: 500;
+
+}
+.Envoyer:hover {
+    background-color: #575757;
+}
+.titreformulaire{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 30%;
+    
+}
+
+/*Bloc Lateral Commun  */
+.NosProduits{
+    text-align: center;
+    padding-top: 2px;
+}
+
+
+.bloc2{
+    background-color: rgb(255, 255, 255);
+    grid-area: Lateral;
+    border-right-width: 5px;
+    border-right-color: red;
+    border-right-style: groove;
+    
+    
+}
+/*Boutons a tenter de factoriser pour faciliter le code */
+.button1 {
+    
+    background-image: url('image1.jpg'); 
+    background-size: cover;
+    color: rgb(0, 0, 0); 
+    padding: 50px 90px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative; /* Position relative pour positionner le texte */
+    transition: background-image 0.3s; /* Transition pour l'effet de survol */
+}
+
+.button1:hover {
+    background-image: none;
+    background-color: white;
+}
+
+.button2 {
+    
+    background-image: url('image4.jpg'); 
+    background-size: cover;
+    color: rgb(0, 0, 0); 
+    padding: 50px 90px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative; /* Position relative pour positionner le texte */
+    transition: background-image 0.3s; /* Transition pour l'effet de survol */
+}
+
+.button2:hover {
+    background-image: none;
+    background-color: white;
+}
+.button3 {
+    
+    background-image: url('image6.jpg'); 
+    background-size: cover;
+    color: rgb(0, 0, 0); 
+    padding: 50px 81px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative; /* Position relative pour positionner le texte */
+    transition: background-image 0.3s; /* Transition pour l'effet de survol */
+}
+
+.button3:hover {
+    background-image: none;
+    background-color: white;
+}
+
+
+/*BasdePage*/
+footer{
+    text-align: center;
+    color: white;
+    background: linear-gradient(350deg, rgb(0, 0, 0), rgb(53, 53, 53));
+    grid-area: Bas_de_Page;
+   
+}
