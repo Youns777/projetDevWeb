@@ -11,11 +11,11 @@ body{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr ;
     grid-template-rows: 1fr 5fr 1fr;
-    grid-template-areas: "Entete Entete"
-                          "Lateral Principal"
-                          "Bas_de_Page Bas_de_Page"
+    grid-template-areas: "Entete"
+                          "Principal"
+                          "Bas_de_Page "
 }
 /*Entete*/
 header{
@@ -62,7 +62,7 @@ margin: auto;
 
 h2{
     text-align: center;
-    margin-right: 150px;
+    margin-right: 500px;
     padding:5px;
 }
 .bloc1{
@@ -70,7 +70,7 @@ h2{
     grid-area:Principal ;
     text-align: justify;
     line-height:1.5;
-    padding-left: 20px;
+    padding-left: 100px;
 }
 /*formulaire*/
 textarea,
@@ -123,77 +123,8 @@ textarea {
 }
 
 
-.bloc2{
-    background-color: rgb(255, 255, 255);
-    grid-area: Lateral;
-    border-right-width: 5px;
-    border-right-color: red;
-    border-right-style: groove;
-    
-    
-}
-/*Boutons a tenter de factoriser pour faciliter le code */
-.button1 {
-    
-    background-image: url('image1.jpg'); 
-    background-size: cover;
-    color: rgb(0, 0, 0); 
-    padding: 50px 90px;
-    font-size: 30px;
-    font-weight: 600;
-    font-family: 'Courier New', Courier, monospace;
-    cursor: pointer;
-    border-radius: 5px;
-    position: relative; /* Position relative pour positionner le texte */
-    transition: background-image 0.3s; /* Transition pour l'effet de survol */
-}
-
-.button1:hover {
-    background-image: none;
-    background-color: white;
-}
-
-.button2 {
-    
-    background-image: url('image4.jpg'); 
-    background-size: cover;
-    color: rgb(0, 0, 0); 
-    padding: 50px 90px;
-    font-size: 30px;
-    font-weight: 600;
-    font-family: 'Courier New', Courier, monospace;
-    cursor: pointer;
-    border-radius: 5px;
-    position: relative; /* Position relative pour positionner le texte */
-    transition: background-image 0.3s; /* Transition pour l'effet de survol */
-}
-
-.button2:hover {
-    background-image: none;
-    background-color: white;
-}
-.button3 {
-    
-    background-image: url('image6.jpg'); 
-    background-size: cover;
-    color: rgb(0, 0, 0); 
-    padding: 50px 81px;
-    font-size: 30px;
-    font-weight: 600;
-    font-family: 'Courier New', Courier, monospace;
-    cursor: pointer;
-    border-radius: 5px;
-    position: relative; /* Position relative pour positionner le texte */
-    transition: background-image 0.3s; /* Transition pour l'effet de survol */
-}
-
-.button3:hover {
-    background-image: none;
-    background-color: white;
-}
 
 
-/*BasdePage*/
 footer{
     text-align: center;
     color: white;
