@@ -11,12 +11,12 @@
 body{
     font-family: Arial, sans-serif;
     margin: auto;
-    background-color: antiquewhite;
+    background-color: #e3e3e3;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 3fr 15fr 3fr;
+    grid-template-rows: 1fr 5fr 15fr 5fr;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
@@ -26,9 +26,15 @@ body{
 header{
     background: black;
     grid-area: Entete;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+#menu{
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    margin-left: 50px;
 }
 
 .titre-logo {
@@ -83,4 +89,22 @@ footer{
     background:black;
     grid-area: Bas_de_Page;
    
+}
+.login{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 2px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+.cart{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 30px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
 }
