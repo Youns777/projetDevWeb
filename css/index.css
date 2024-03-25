@@ -26,7 +26,11 @@ body{
 header{
     background: black;
     grid-area: Entete;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
+
 .titre-logo {
     text-align: center; /* Aligner le contenu au centre */
 }
