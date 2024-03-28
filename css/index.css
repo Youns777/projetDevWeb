@@ -19,7 +19,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 5fr auto 5fr;
+    grid-template-rows: 25px 130px auto 130px;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
@@ -32,6 +32,7 @@ header{
     display: block;
     justify-content: center;
     align-items: center;
+
 }
 #menu{
     display: flex;
