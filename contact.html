@@ -1,33 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <head>
+        <meta charset="UTF-8"></head>
+        <link rel="stylesheet"  href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/contact.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <title>Contact - ShopTaSneakers</title>
+    </html>
+    </head>
+    <body>
+        <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
+        <header>
+            <div class="titre-logo">
+            <a href="index.html"><img src="img/logo.png" class="logo"></a>       
+            <h1>ShopTaSneakers</h1>
+            </div>
+            <a href="index.html"><img src="img/cart.png" clas<html>
+                <link rel="stylesheet"  href="normalize.css">
+                <link rel="stylesheet" type="text/css" href="index.css">
+                <body>
+                    <div id="header">
+                    <center>
+                        <br>
+                        <h1> ShopTaSneaker </h1>
+                    
+                        <table id="onglet">
+                            <tr>
+                                <td>Accueil</td>
+                                <td>Bulbes</td>
+                                <td>Rosiers</td>
+                                <td>Contact</td>
+                            </tr>
+                        </table>
+                    </center>
+                    </div>
+                    
+                    <div id="main">
+                        <div id="menu">
+                            <p> Nos chaussures </p>
+                            <ul>
+                                <li><a href="sneakers.html">Sneakers</a></li>
+                                <li><a href="classic.html">classic</a></li>
+                                <li><a href="sport.html">Sport</a></li>
+                            </ul>
+                        </div>
+            
+                        <div id="contenu">
+                            <p id="contenu-title"><b> Notre sélection pour vous </b></p>
+                                <article>
+                                    <header>
+                                        <a href=""><img src="sneaker.png" alt=""></a>
+                                        <a href=""><img src="classic.png" alt=""></a>
+                                        <a href=""><img src="sport.png" alt=""></a>
+                                    </header>                    
+                                </article>   
+                                <p id="article-title"> Nos chaussures sont de qualités et nous essayons de réduire un maximum 
+                                    notre emprunte carbonne.
+                                </p>              
+                        </div>
+                    </div>
+            
+                    <div id="footer">
+                        <p>Copyright &copy; CYTech student groupe 1 </p>
+            
+                    </div>
+            =======s="cart"></a>
 
-<head>
-    <meta charset="UTF-8"></head>
-    <title>Contact - ShopTaSneakers</title>
-    <link rel="stylesheet" type="text/css" href="contact.css">
+            </a>
+            <a href="index.html">
+            <img src="img/login.png" class="login"></a>
+            <br>
 
-<body>
-    <header>
-       <h1>ShopTaSneakers</h1><br>
-        <table>
-            <tr>
-                <td><a href="index.html" class="boutonMenu">Accueil</a></td>
-                <td><a href="Homme.html" class="boutonMenu">Homme</a></td>
-                <td><a href="Femmme.html" class="boutonMenu">Femme</a></td>
-                <td><a href="Enfant.html" class="boutonMenu">Enfant</a></td>
-                <td><a href="contact.html" class="boutonMenu">Contact</a></td>
-            </tr>
-        </table>
-    </header>
-    <div class="bloc2">
-        <h3 class="NosProduits">Nos Produits:</h3><br>
-        <a href="Homme.html"><button class="button1" >Homme</button></a><br>
-        <a href="Femme.html"><button class="button2" >Femme</button><br>
-        <a href="Enfant.html"><button class="button3" >Enfant</button></a>
-    </div>
+            <table id="menu">
+                <tr>
+                    <td><a href="index.html" class="boutonMenu">Accueil</a></td>
+                    <td><a href="homme.html" class="boutonMenu">Homme</a></td>
+                    <td><a href="femme.html" class="boutonMenu">Femme</a></td>
+                    <td><a href="enfant.html" class="boutonMenu">Enfant</a></td>
+                    <td><a href="contact.html" class="boutonMenu">Contact</a></td>
+                </tr>
+                
+            </table>
+        </header>
+        
+        
     <div class="bloc1">
-    <h2 class="titreformulaire">Demande de Contact</h2>
-    <form action="" methode="get">
+        <h2 class="titreformulaire">Demande de Contact</h2>
+
+        
+        <form action="" methode="post">
+
         <label for="Date du contact" > Date du contact : </label>
         <input type="date" name="Date du contact"/> <br>
         <label for="nom" > Nom : </label>    
@@ -42,6 +106,7 @@
         <label for="Date de Naissance" > Date de Naissance : </label>
         <input type="date" name="Date de Naissance"/> <br>
         <label for="fonction">Fonction :</label>
+
         <select id="fonction" name="fonction">
             <option value="" selected disabled>Choisissez une fonction</option>
             <optgroup label="Métiers de l'informatique">
