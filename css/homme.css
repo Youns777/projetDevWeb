@@ -13,18 +13,19 @@ body{
     margin: auto;
     background-color: #e3e3e3;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 25px 125px 500px 125px;
+    grid-template-rows: 25px 125px auto 125px;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
-                        "Bas_de_Page ";
-    display: flex;
-    flex-direction: column;
+                        "Bas_de_Page "
 }
 /*Entete*/
+.bloc1{
+    grid-area: Principal;
+}
 header{
     background: black;
     grid-area: Entete;
@@ -90,7 +91,6 @@ footer{
     color: white;
     background:black;
     grid-area: Bas_de_Page;
-    margin-top: auto;
    
 }
 .login{

@@ -1,0 +1,150 @@
+.bandehaut{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color:white;
+    background-color: rgba(175, 4, 4, 0.825);
+    grid-area: "bandeau";
+    margin: 0px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+body{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    background-color: #e3e3e3;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 25px 125px auto 125px;
+    grid-template-areas: "bandeau"
+                        "Entete"
+                        "Principal"
+                        "Bas_de_Page "
+}
+/*Entete*/
+.bloc1{
+    grid-area: Principal;
+}
+header{
+    background: black;
+    grid-area: Entete;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+#menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.titre-logo {
+    text-align: center; /* Aligner le contenu au centre */
+}
+
+.titre-logo h1,
+.titre-logo img {
+    display: inline-block; /* Afficher en ligne */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+.logo{
+    width: 80px;
+    height: auto;
+    display: inline;
+}
+header h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.boutonMenu {
+
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
+    font-weight: bold;
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    border: none;
+    background: none;
+    color: rgb(254, 254, 254);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent; /* Bord Transparent */
+    padding-bottom: 0px; 
+    border-radius: 0; /* Pas de bord Rond */
+}
+
+
+.boutonMenu:hover {
+    color: white; /* Couleur du texte en hover */
+    border-bottom-color:white; /* Couleur du bord en hover */
+    background-color:transparent; /* Couleur du fond en hover */
+}
+
+footer{
+    text-align: center;
+    color: white;
+    background:black;
+    grid-area: Bas_de_Page;
+   
+}
+.login{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 2px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+.cart{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 30px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+
+
+/* Nos Produits*/
+.ligne{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;    
+}
+.chaussure {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.chaussure img {
+    width: 100%;
+    height: auto;
+}
+
+.ajouter-panier {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}

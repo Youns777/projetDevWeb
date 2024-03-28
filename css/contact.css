@@ -15,7 +15,7 @@ body{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     grid-template-rows: 25px 125px 500px 125px;
     grid-template-areas: "bandeau"
                         "Entete"
@@ -23,6 +23,9 @@ body{
                         "Bas_de_Page "
 }
 /*Entete*/
+.bloc1{
+    grid-area: Principal;
+}
 header{
     background: black;
     grid-area: Entete;
@@ -166,4 +169,5 @@ footer{
     position: absolute;
     margin-right: 10px;
 }
+
 
