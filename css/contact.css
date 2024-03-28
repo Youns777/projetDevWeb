@@ -101,7 +101,9 @@ select {
     border-radius: 8px;
     box-sizing: border-box;
 }
-
+label{
+    
+}
 textarea {
     vertical-align: middle;
   }
