@@ -81,7 +81,6 @@ select {
     width: 60%;
     padding: 10px;
     margin: 2px 5px;
-    display: inline-block;
     border: 2px solid #150505;
     border-radius: 10px;
     box-sizing: border-box;
@@ -89,6 +88,8 @@ select {
 textarea {
     vertical-align: middle;
   }
+
+
 .Envoyer {
     background-color: #3f3f3f;
     border: none;
