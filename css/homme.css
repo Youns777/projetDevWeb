@@ -16,7 +16,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 25px 125px auto 125px;
+    grid-template-rows: 1fr 5fr auto 5fr;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
