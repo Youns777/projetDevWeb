@@ -16,13 +16,11 @@ body{
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 25px 125px 500px 125px;
+    grid-template-rows: 1fr 5fr auto 5fr;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
                         "Bas_de_Page ";
-    display: flex;
-    flex-direction: column;
 }
 /*Entete*/
 header{
@@ -111,6 +109,7 @@ footer{
     position: absolute;
     margin-right: 10px;
 }
+
 
 
 /* Nos Produits*/
