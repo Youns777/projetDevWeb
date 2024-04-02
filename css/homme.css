@@ -112,6 +112,16 @@ header h1{
 .bloc1{
     grid-area: Principal;
 }
+.bloc1 h2{
+    margin-left: 10px;
+}
+table{
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 35px;
+    margin-left: 60px;
+    
+}
 .chaussure {
     display: inline-block;
     margin: 10px;
@@ -140,6 +150,19 @@ header h1{
     border: none;
     border-radius: 4px;
 }
+select[name="taille"] {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #444;
+}
+
+select[name="taille"]:hover,
+select[name="taille"]:focus {
+    border-color: #999;
+}
 /*######################## Bloc Lateral #################################*/
 .bloc2{
     background-color: beige;
@@ -155,6 +178,7 @@ footer{
     grid-area: Bas_de_Page;
    
 }
+
 
 
 

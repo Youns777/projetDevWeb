@@ -1,3 +1,5 @@
+/*######################## Bande Promo #################################*/
+
 .bandehaut{
     text-align: center;
     font-family: Arial, sans-serif;
@@ -8,11 +10,12 @@
     padding-top: 5px;
     font-weight: bold;
 }
+/*######################## Body #################################*/
+
 body{
     font-family: Arial, sans-serif;
     margin: auto;
     min-height: 100vh;
-    /* display: flex; */
     flex-direction: column;
     background-color: #e3e3e3;
     width: 100%;
@@ -25,7 +28,7 @@ body{
                         "Principal"
                         "Bas_de_Page"
 }
-/*Entete*/
+/*######################## En Tete #################################*/
 header{
     background: black;
     grid-area: Entete;
@@ -85,6 +88,7 @@ header h1{
     border-bottom-color:white; /* Couleur du bord en hover */
     background-color:transparent; /* Couleur du fond en hover */
 }
+/*######################## Bloc Principal #################################*/
 
 
 #accueil img{
