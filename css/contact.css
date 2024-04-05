@@ -15,14 +15,17 @@ body{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 25px 125px 500px 125px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25px 125px auto 125px;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
                         "Bas_de_Page "
 }
 /*Entete*/
+.bloc1{
+    grid-area: Principal;
+}
 header{
     background: black;
     grid-area: Entete;
@@ -89,24 +92,32 @@ form{
     margin-left: 20px;
     font-family: Arial, Helvetica, sans-serif
 }
-textarea,
-input[type="date"],
-input[type="email"],
+/* Style pour les éléments de formulaire */
 input[type="text"],
-select {
-    width: 60%;
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 60%; 
     padding: 10px;
-    margin: 2px auto;
+    margin: 2px 20px; 
     border: 2px solid #150505;
     border-radius: 8px;
     box-sizing: border-box;
 }
-label{
-    
-}
+
+label {
+    width: 10%; 
+    display: inline-block;
+    text-align: left; 
+    margin-right: 10px;
+} 
+
 textarea {
-    vertical-align: middle;
-  }
+    vertical-align: top; 
+}
+
+
 .Envoyer {
     background-color: #3f3f3f;
     border: none;
@@ -114,23 +125,25 @@ textarea {
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 15px;
-    margin: 4px 0px 4px 900px;
+    margin: 4px 0px 4px 20px; 
     cursor: pointer;
     border-radius: 10px;
     border: 2px solid #150505;
     transition: background-color 0.3s;
-    font-weight: 500;
-
+    font-weight: 600;
+    float: right;
+    margin-right: 400px;
 }
 .Envoyer:hover {
     background-color: #575757;
 }
-.titreformulaire{
+.titreformulaire {
     text-align: center;
-    
+    margin-bottom: 20px;
 }
+
+
 footer{
     text-align: center;
     color: white;
@@ -156,4 +169,199 @@ footer{
     position: absolute;
     margin-right: 10px;
 }
+
+
+/*######################## Body #################################*/
+
+body{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    background-color: #e3e3e3;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 25px 130px auto 130px;
+    grid-template-areas: "bandeau bandeau"
+                        "Entete Entete"
+                        "Lateral Principal"
+                        "Bas_de_Page Bas_de_Page "
+}
+
+/*######################## Bande Promo #################################*/
+.bandehaut{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color:white;
+    background-color: rgba(175, 4, 4, 0.825);
+    grid-area: bandeau;
+    margin: 0px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+
+
+
+/*######################## Header #################################*/
+header{
+    background: black;
+    grid-area: Entete;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+#menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.titre-logo {
+    text-align: center; /* Aligner le contenu au centre */
+}
+
+.titre-logo h1,
+.titre-logo img {
+    display: inline-block; /* Afficher en ligne */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+.logo{
+    width: 80px;
+    height: auto;
+    display: inline;
+}
+header h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.boutonMenu {
+
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
+    font-weight: bold;
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    border: none;
+    background: none;
+    color: rgb(254, 254, 254);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent; /* Bord Transparent */
+    padding-bottom: 0px; 
+    border-radius: 0; /* Pas de bord Rond */
+}
+
+
+.boutonMenu:hover {
+    color: white; /* Couleur du texte en hover */
+    border-bottom-color:white; /* Couleur du bord en hover */
+    background-color:transparent; /* Couleur du fond en hover */
+}
+.login{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 2px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+.cart{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 30px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+/*######################## Bloc Principal #################################*/
+.bloc1{
+    grid-area: Principal;
+}
+form{
+    margin-left: 20px;
+    font-family: Arial, Helvetica, sans-serif
+}
+/* Style pour les éléments de formulaire */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 60%; 
+    padding: 10px;
+    margin: 2px 20px; 
+    border: 2px solid #150505;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+label {
+    width: 10%; 
+    display: inline-block;
+    text-align: left; 
+    margin-right: 10px;
+} 
+
+textarea {
+    vertical-align: top; 
+}
+
+
+.Envoyer {
+    background-color: #3f3f3f;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 4px 0px 4px 20px; 
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #150505;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    float: right;
+    margin-right: 400px;
+}
+.Envoyer:hover {
+    background-color: #575757;
+}
+.titreformulaire {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*######################## Bloc Lateral #################################*/
+.bloc2{
+    background-color: beige;
+    grid-area: Lateral;
+}
+
+/*######################## Footer #################################*/
+
+footer{
+    text-align: center;
+    color: white;
+    background:black;
+    grid-area: Bas_de_Page;
+   
+}
+footer img {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}
+
+
+
+
 

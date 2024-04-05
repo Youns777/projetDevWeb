@@ -1,3 +1,5 @@
+/*######################## Bande Promo #################################*/
+
 .bandehaut{
     text-align: center;
     font-family: Arial, sans-serif;
@@ -8,27 +10,32 @@
     padding-top: 5px;
     font-weight: bold;
 }
+/*######################## Body #################################*/
+
 body{
     font-family: Arial, sans-serif;
     margin: auto;
+    min-height: 100vh;
+    flex-direction: column;
     background-color: #e3e3e3;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 5fr 15fr 5fr;
+    grid-template-rows: 25px 130px auto 130px;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
-                        "Bas_de_Page "
+                        "Bas_de_Page"
 }
-/*Entete*/
+/*######################## En Tete #################################*/
 header{
     background: black;
     grid-area: Entete;
     display: block;
     justify-content: center;
     align-items: center;
+
 }
 #menu{
     display: flex;
@@ -57,7 +64,6 @@ header h1{
     color: white;
 }
 .boutonMenu {
-
     font-size: larger;
     font-family: 'Courier New', Courier, monospace; /* Police à discuter */
     font-weight: bold;
@@ -82,12 +88,23 @@ header h1{
     border-bottom-color:white; /* Couleur du bord en hover */
     background-color:transparent; /* Couleur du fond en hover */
 }
+/*######################## Bloc Principal #################################*/
+
+
+#accueil img{
+    width: 70%;
+    height: 450px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
 
 footer{
     text-align: center;
     color: white;
     background:black;
     grid-area: Bas_de_Page;
+    margin-top: auto;
    
 }
 .login{
@@ -107,4 +124,57 @@ footer{
     top: 35px;
     position: absolute;
     margin-right: 10px;
+}
+
+.bloc1{
+    grid-area: Principal;
+}
+
+#texte_menu{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+}
+
+.produits{
+    text-align: center;
+}
+
+table{
+    margin: 0 auto;
+}
+
+/* Nos Produits*/
+.ligne{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;    
+}
+.chaussure {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.chaussure img {
+    width: 100%;
+    height: auto;
+}
+
+.ajouter-panier {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
 }
