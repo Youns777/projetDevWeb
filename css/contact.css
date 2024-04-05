@@ -355,6 +355,11 @@ footer{
     grid-area: Bas_de_Page;
    
 }
+footer img {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}
 
 
 
