@@ -20,14 +20,7 @@ body{
     background-color: #e3e3e3;
     width: 100%;
     height: 100%;
-    display: grid;.chaussure img,
-    .classic_shoes img,
-    .running_shoes img {
-        width: 100%;
-        height: auto;
-        max-width: 100%; /* S'assure que les images ne dépassent pas la largeur de leurs conteneurs */
-        max-height: 100%; /* S'assure que les images ne dépassent pas la hauteur de leurs conteneurs */
-    }
+    display: grid;
     grid-template-columns: 1fr ;
     grid-template-rows: 25px 130px auto 130px;
     grid-template-areas: "bandeau"
@@ -157,39 +150,19 @@ table{
     justify-content: space-around;
     flex-wrap: wrap;    
 }
-
-.produits div {
+.chaussure {
     display: inline-block;
     margin: 10px;
     text-align: center;
     border: 1px solid #ccc;
     padding: 10px;
-    width: 200px; /* Largeur fixe des cellules */
-    height: 250px; /* Hauteur fixe des cellules */
+    width: 200px;
     border-radius: 5px;
-    
 }
 
-#survol a{
-    text-decoration: none;
-    color: black;
-}
-
-.chaussure img,
-.classic_shoes img,
-.running_shoes img, .claquette img {
+.chaussure img {
     width: 100%;
     height: auto;
-    max-width: 100%; /* S'assure que les images ne dépassent pas la largeur de leurs conteneurs */
-    max-height: 100%; /* S'assure que les images ne dépassent pas la hauteur de leurs conteneurs */
-}
-
-/* #survol{
-  
-} */
-
-#survol:hover img{
-    opacity: 0.5;
 }
 
 .ajouter-panier {
