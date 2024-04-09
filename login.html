@@ -37,25 +37,41 @@
         
         <div class="bloc1">
             <h2 class="titreformulaire">Bienvenue au royaume de la sneakers !</h2>
-            <form action="" methode="post">
-                <label for="nom" > Nom : </label>    
-                <input type="text" name="nom" placeholder="Entrez votre Nom"/> <br>
-                <label for="Prenom" > Prénom : </label>    
-                <input type="text" name="Prenom" placeholder="Entrez votre Prenom"/> <br>
-                <label for="email" > Email : </label>    
-                <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
-                <label for="Adresse" > Adresse : </label>    
-                <input type="text" name="Adresse" placeholder="Entrez votre adresse"/> <br>
-                <label for="Date de Naissance" > Date de Naissance : </label>
-                <input type="date" name="Date de Naissance"/> <br>
+            <div class="container">
+                <div class="form_inscription">   
+                    <form action="" methode="post">
+                        <label for="nom" > Nom : </label>    
+                        <input type="text" name="nom" placeholder="Entrez votre Nom"/> <br>
+                        <label for="Prenom" > Prénom : </label>    
+                        <input type="text" name="prenom" placeholder="Entrez votre Prenom"/> <br>
+                        <label for="email" > Email : </label>    
+                        <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
+                        <label for="Adresse" > Adresse : </label>    
+                        <input type="text" name="adresse" placeholder="Entrez votre adresse"/> <br>
+                        <label for="Date_Naissance" > Date de Naissance : </label>
+                        <input type="date" name="Date de Naissance"/> <br>
+                        <label for="Mot_passe" name="password">Mot de passe : </label>
+                        <input type="password" name="password" placeholder="******"/> <br>
 
-                <input type="submit" value="Inscription" class="Inscription"/>
-
-                <div class="footer_form">
-                    <a href="">Inscription</a>
-                    <a href="">Connexion</a>
+                        <input type="submit" value="Inscription" class="Inscription"/>
+                    </form>
                 </div>
-            </form>
+                <div class="form_connexion">
+                    <form action="" methode="post" class="form2">
+                        <label for="email" > Email : </label>    
+                        <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
+                        <label for="Mot_passe" name="password">Mot de passe : </label>
+                        <input type="password" name="password" placeholder="******"/> <br>
+
+                        <input type="submit" value="Connexion" class="Connexion"/>
+                    </form>
+
+                </div>
+                <div class="footer_form">
+                        <a href="">Inscription</a>
+                        <a href="">Connexion</a>
+                </div>
+            </div>
         </div>
     </body>
     
