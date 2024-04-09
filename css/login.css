@@ -8,7 +8,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 25px 130px auto 130px;
+    grid-template-rows: 25px 130px 605px 150px;
     grid-template-areas: "bandeau bandeau"
                         "Entete Entete"
                         "Principal Principal"
