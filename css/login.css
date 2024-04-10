@@ -1,0 +1,247 @@
+/*######################## Body #################################*/
+
+body{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    background-color: #e3e3e3;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 25px 130px 605px 150px;
+    grid-template-areas: "bandeau bandeau"
+                        "Entete Entete"
+                        "Principal Principal"
+                        "Bas_de_Page Bas_de_Page "
+}
+
+/*######################## Bande Promo #################################*/
+.bandehaut{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color:white;
+    background-color: rgba(175, 4, 4, 0.825);
+    grid-area: bandeau;
+    margin: 0px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+
+
+
+/*######################## Header #################################*/
+header{
+    background: black;
+    grid-area: Entete;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+#menu{
+    display: flex;
+    justify-content: center;
+    align-items: flex;
+    margin-left: 50px;
+}
+
+.titre-logo {
+    text-align: center; /* Aligner le contenu au centre */
+}
+
+.titre-logo h1,
+.titre-logo img {
+    display: inline-block; /* Afficher en ligne */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+.logo{
+    width: 80px;
+    height: auto;
+    display: inline;
+}
+header h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.boutonMenu {
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
+    font-weight: bold;
+    margin-top:auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    border: none;
+    background: none;
+    color: rgb(254, 254, 254);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent; /* Bord Transparent */
+    padding-bottom: 0px; 
+    border-radius: 0; /* Pas de bord Rond */
+}
+
+
+.boutonMenu:hover {
+    color: white; /* Couleur du texte en hover */
+    border-bottom-color:white; /* Couleur du bord en hover */
+    background-color:transparent; /* Couleur du fond en hover */
+}
+.login{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 2px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+.cart{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 30px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+/*######################## Bloc Principal #################################*/
+.bloc1{
+    grid-area: Principal;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+}
+.bloc1 h2{
+    margin-left: 10px;
+}
+table{
+    text-align: center;
+    margin-bottom: 35px;
+    margin-left: 60px;
+}
+.chaussure {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.chaussure img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.chaussure:hover {
+    transform: translateY(-5px); 
+    transition: transform 0.3s ease; /* Animation de transition fluide */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+
+.container{
+    width: 50%;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.form_inscription{
+    width: 60%;
+}
+
+.form_connexion{
+    width: 60%;
+}
+
+form{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ccc;
+    border-radius: 5%;
+    margin-bottom: 10%;
+    padding: 3%;
+    width: 100%;
+}
+
+.form2{
+    margin-bottom: 50%;
+}
+
+/* Style pour les éléments de formulaire */
+input[type="text"],
+input[type="email"],
+input[type="date"], 
+input[type="password"] {
+    width: 50%; 
+    padding: 10px;
+    margin: 2px 20px; 
+    border: 2px solid #150505;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+label {
+    width: 30%; 
+    display: inline-block;
+    text-align: left; 
+    margin-right: 10px;
+} 
+
+textarea {
+    vertical-align: top; 
+}
+
+.Inscription{
+    margin-top: 20px;
+}
+
+.Connexion{
+    margin-top: 20px;
+}
+
+
+.footer_form{
+    margin-bottom: 20px;
+    margin-top: 0%;
+    display: block ruby;
+}
+
+.footer_form a{
+    padding: 2%;
+    text-decoration: none;
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+/*######################## Bloc Lateral #################################*/
+/* .bloc2{
+    background-color: beige;
+    grid-area: Lateral;
+}
+ */
+/*######################## Footer #################################*/
+
+footer{
+    text-align: center;
+    color: white;
+    background:black;
+    grid-area: Bas_de_Page;
+   
+}
+
+footer img {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}
+
+
