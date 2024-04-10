@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"></head>
+        <link rel="stylesheet"  href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <script src="js/login.js"></script>
+        <title>login - ShopTaSneakers</title>
+    </head>
+    
+    <body>
+        <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
+        <header>
+            <div class="titre-logo">
+                <a href="index.html"><img src="img/logo.png" class="logo"></a>       
+                <h1>ShopTaSneakers</h1>
+            </div>
+            <a href="index.html"><img src="img/cart.png" class="cart"></a>
+
+            <a href="index.html">
+                <img src="img/login.png" class="login">
+            </a>
+            <br>
+
+            <table id="menu">
+                <tr>
+                    <td><a href="index.html" class="boutonMenu">Accueil</a></td>
+                    <td><a href="homme.html" class="boutonMenu">Homme</a></td>
+                    <td><a href="femme.html" class="boutonMenu">Femme</a></td>
+                    <td><a href="enfant.html" class="boutonMenu">Enfant</a></td>
+                    <td><a href="contact.html" class="boutonMenu">Contact</a></td>
+                </tr>
+            </table>
+        </header>
+        
+        <div class="bloc1">
+            <h2 class="titreformulaire">Bienvenue au royaume de la sneakers !</h2>
+            <div class="container">
+                <div class="form_inscription">   
+                    <form action="" methode="post">
+                        <label for="nom" > Nom : </label>    
+                        <input type="text" name="nom" placeholder="Entrez votre Nom"/> <br>
+                        <label for="Prenom" > Prénom : </label>    
+                        <input type="text" name="prenom" placeholder="Entrez votre Prenom"/> <br>
+                        <label for="email" > Email : </label>    
+                        <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
+                        <label for="Adresse" > Adresse : </label>    
+                        <input type="text" name="adresse" placeholder="Entrez votre adresse"/> <br>
+                        <label for="Date_Naissance" > Date de Naissance : </label>
+                        <input type="date" name="Date de Naissance"/> <br>
+                        <label for="Mot_passe" name="password">Mot de passe : </label>
+                        <input type="password" name="password" placeholder="******"/> <br>
+
+                        <input type="submit" value="Inscription" class="Inscription"/>
+                    </form>
+                </div>
+                <div class="form_connexion">
+                    <form action="" methode="post" class="form2">
+                        <label for="email" > Email : </label>    
+                        <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
+                        <label for="Mot_passe" name="password">Mot de passe : </label>
+                        <input type="password" name="password" placeholder="******"/> <br>
+
+                        <input type="submit" value="Connexion" class="Connexion"/>
+                    </form>
+                </div>
+                <div class="footer_form">
+                        <a href="" class="button_inscription">Inscription</a>
+                        <a href="" class="button_connexion">Connexion</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+
+    <footer>
+       <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
+        <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
+        <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
+        <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+    </footer>
+</html>
+    
