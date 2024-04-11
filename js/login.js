@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Au chargement de la page, masquer le formulaire de connexion
-    document.querySelector('.form_connexion').style.display = 'none';
+    document.querySelector('.form_inscription').style.display = 'none';
 
     var titreFormulaire = document.querySelector('.titreformulaire');
     
