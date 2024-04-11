@@ -51,9 +51,11 @@
                 <input type="text" name="Prenom" placeholder="Entrez votre Prenom"/> <br>
                 <label for="email" > Email : </label>    
                 <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
-                <label for="genre" style="margin-right: 25px;"> Genre : </label>
-                <input type="radio" name="genre" value="Homme"/> Homme
-                <input type="radio" name="genre" value="Femme"/> Femme <br>
+                <div class="genre_radio">
+                    <label for="genre" style="margin-right: 25px;"> Genre : </label>
+                    <input type="radio" name="genre" value="Homme"/> Homme
+                    <input type="radio" name="genre" value="Femme"/> Femme <br>
+                </div>
                 <label for="Date de Naissance" > Date de Naissance : </label>
                 <input type="date" name="Date de Naissance"/> <br>
                 <label for="fonction">Fonction :</label>
@@ -81,7 +83,8 @@
                 <input type="text" name="Sujet" placeholder="Entrez le sujet de votre mail"/> <br>
                 <label for="Contenu" > Contenu : </label>    
                 <textarea name="Contenu" placeholder="Taper ici votre mail" ></textarea><br>
-                <input type="submit" value="Envoyer" class="Envoyer"/>
+                <button class="Envoyer">Envoyer</button>
+                <!-- <input type="submit" value="Envoyer" class="Envoyer"/> -->
             </form>
         </div>
 
