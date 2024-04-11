@@ -114,7 +114,7 @@ header h1{
 }
 
 .bloc1 h2{
-    margin-left: 10px;
+    margin-left: 3%;
 }
 
 .produits{
@@ -126,10 +126,9 @@ header h1{
 table{
     text-align: center;
     margin-top: 18px;
-    margin-bottom: 35px;
-    margin-left: 60px;
-    
+    margin-bottom: 35px;    
 }
+
 .chaussure {
     display: inline-block;
     margin: 10px;
