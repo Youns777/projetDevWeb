@@ -13,7 +13,7 @@ for (var i = 0; i < images.length; i++) {
     }
 
     // Augmentez la taille de l'image
-    event.target.style.transform = 'scale(1.5)';
+    event.target.style.transform = 'scale(1.2)';
     // Mettez l'image au premier plan
     event.target.style.zIndex = '1000';
   });
@@ -58,13 +58,26 @@ for (var i = 0; i < images.length; i++) {
     // Ajoutez l'image à la div
     zoomedImageDiv.appendChild(zoomedImage);
 
-    // Ajoutez la div à l'élément body de la page
-    document.body.appendChild(zoomedImageDiv);
+    // Créez un nouveau bouton de sortie
+    var exitButton = document.createElement('button');
+    exitButton.textContent = 'X';
+    exitButton.style.position = 'absolute';
+    exitButton.style.top = '20px';
+    exitButton.style.right = '20px';
+    exitButton.style.fontSize = '1.5em';
+    exitButton.style.backgroundColor = 'transparent';
+    exitButton.style.border = 'none';
+    exitButton.style.color = 'white';
 
-    // Lorsque la div est cliquée, supprimez-la de la page
-    zoomedImageDiv.addEventListener('click', function() {
+    // Lorsque le bouton de sortie est cliqué, supprimez la div de l'image zoomée de la page
+    exitButton.addEventListener('click', function() {
       document.body.removeChild(zoomedImageDiv);
     });
+
+    // Ajoutez le bouton de sortie à la div
+    zoomedImageDiv.appendChild(exitButton);
+
+    // Ajoutez la div à l'élément body de la page
+    document.body.appendChild(zoomedImageDiv);
   });
 }
-*/
