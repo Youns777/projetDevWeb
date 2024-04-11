@@ -65,7 +65,6 @@ header h1{
     color: white;
 }
 .boutonMenu {
-
     font-size: larger;
     font-family: 'Courier New', Courier, monospace; /* Police à discuter */
     font-weight: bold;
@@ -126,9 +125,8 @@ table{
     text-align: center;
     margin-top: 18px;
     margin-bottom: 35px;
-    margin-left: 60px;
-    
 }
+
 .chaussure {
     display: inline-block;
     margin: 10px;
