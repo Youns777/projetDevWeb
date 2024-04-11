@@ -213,3 +213,9 @@ footer img {
     margin: 0 10px;
 }
 
+/*######################## JavaScript #################################*/
+
+/*Rendre la transition du Zoom plus fluide */
+.chaussure img {
+    transition: transform 0.3s ease;
+  }
