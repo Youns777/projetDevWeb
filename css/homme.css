@@ -191,6 +191,19 @@ select[name="taille"]:focus {
     border-color: #999;
 }
 
+h3 {
+    position: relative;
+  }
+  
+  h3 .subtitle {
+    position: absolute;
+    left: 0;
+    text-indent: 75px;
+    bottom: -18px;
+    font-size: 0.8em;
+    color: rgb(75, 75, 75);
+  }
+
 /*######################## Bloc Lateral #################################*/
 .bloc2{
     background-color: beige;
