@@ -36,6 +36,7 @@ function afficherMenu() {
         foreach ($categories as $categorie => $produits) {
             echo '<td><a href="produits.php?cat=' . $categorie . '" class="boutonMenu">' . ucfirst($categorie) . '</a></td>';
         }
+        echo '<td><a href="contact.html" class="boutonMenu">Contact</a></td>';
         echo '</tr>';
     }
 }
