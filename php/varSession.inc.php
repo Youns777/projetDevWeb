@@ -5,7 +5,7 @@ session_start();
 
 // Définir le tableau des catégories avec les produits et leurs informations
 
-$csvFile = fopen('csv\produits.csv', 'r');
+$csvFile = fopen('php\csv\produits.csv', 'r');
 $categories = [];
 
 // Skip the first line (header)
