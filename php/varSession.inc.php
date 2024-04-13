@@ -32,6 +32,7 @@ function afficherMenu() {
     if (isset($_SESSION['categories'])) {
         $categories = $_SESSION['categories'];
         echo '<tr>';
+        echo '<td><a href="index.html" class="boutonMenu">Accueil</a></td>';
         foreach ($categories as $categorie => $produits) {
             echo '<td><a href="produits.php?cat=' . $categorie . '" class="boutonMenu">' . ucfirst($categorie) . '</a></td>';
         }
