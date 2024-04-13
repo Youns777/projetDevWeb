@@ -1,100 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8"></head>
-        <link rel="stylesheet"  href="normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/contact.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-        <title>Contact - ShopTaSneakers</title>
-    </html>
-    </head>
-    
-    <body>
-            <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
-            <header>
-                <div class="titre-logo">
-                <a href="index.html"><img src="img/logo.png" class="logo"></a>       
-                <h1>ShopTaSneakers</h1>
-                </div>
-                <a href="index.html"><img src="img/cart.png" class="cart"></a>
-
-                </a>
-                <a href="index.html">
-                <img src="img/login.png" class="login"></a>
-                <br>
-
-                <table id="menu">
-                    <tr>
-                        <td><a href="index.html" class="boutonMenu">Accueil</a></td>
-                        <td><a href="homme.html" class="boutonMenu">Homme</a></td>
-                        <td><a href="femme.html" class="boutonMenu">Femme</a></td>
-                        <td><a href="enfant.html" class="boutonMenu">Enfant</a></td>
-                        <td><a href="contact.html" class="boutonMenu">Contact</a></td>
-                    </tr>
-                    
-                </table>
-            </header>
-            
-            
-        <div class="bloc1">
-            <h2 class="titreformulaire">Demande de Contact</h2>
-
-            
-            <form action="" methode="post">
-                <label for="Date du contact" > Date du contact : </label>
-                <input type="date" name="Date du contact"/> <br>
-                <label for="nom" > Nom : </label>    
-                <input type="text" name="nom" placeholder="Entrez votre Nom"/> <br>
-                <label for="Prenom" > Prénom : </label>    
-                <input type="text" name="Prenom" placeholder="Entrez votre Prenom"/> <br>
-                <label for="email" > Email : </label>    
-                <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
-                <div class="genre_radio">
-                    <label for="genre" style="margin-right: 25px;"> Genre : </label>
-                    <input type="radio" name="genre" value="Homme"/> Homme
-                    <input type="radio" name="genre" value="Femme"/> Femme <br>
-                </div>
-                <label for="Date de Naissance" > Date de Naissance : </label>
-                <input type="date" name="Date de Naissance"/> <br>
-                <label for="fonction">Fonction :</label>
-                
-                <select id="fonction" name="fonction">
-                    <option value="" selected disabled>Choisissez une fonction</option>
-                    <optgroup label="Métiers de l'informatique">
-                        <option value="developpeur">Développeur</option>
-                        <option value="analyste">Analyste système</option>
-                        <option value="administrateur">Administrateur réseau</option>
-                    </optgroup>
-                    <optgroup label="Métiers de la santé">
-                        <option value="infirmier">Infirmier</option>
-                        <option value="medecin">Médecin</option>
-                        <option value="pharmacien">Pharmacien</option>
-                    </optgroup>
-                    <optgroup label="Métiers de l'éducation">
-                        <option value="professeur">Professeur</option>
-                        <option value="conseiller">Conseiller pédagogique</option>
-                        <option value="bibliothecaire">Bibliothécaire</option>
-                    </optgroup>  
-                </select> <br>
-            
-                <label for="Sujet" > Sujet : </label>
-                <input type="text" name="Sujet" placeholder="Entrez le sujet de votre mail"/> <br>
-                <label for="Contenu" > Contenu : </label>    
-                <textarea name="Contenu" placeholder="Taper ici votre mail" ></textarea><br>
-                <button class="Envoyer">Envoyer</button>
-                <!-- <input type="submit" value="Envoyer" class="Envoyer"/> -->
-            </form>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>Contact - ShopTaSneakers</title>
+</head>
+<body>
+<div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
+<header>
+    <div class="titre-logo">
+        <a href="index.html"><img src="img/logo.png" class="logo"></a>
+        <h1>ShopTaSneakers</h1>
+    </div>
+    <a href="index.html"><img src="img/cart.png" class="cart"></a>
+    <a href="index.html"><img src="img/login.png" class="login"></a>
+    <br>
+    <table id="menu">
+        <tr>
+            <td><a href="index.html" class="boutonMenu">Accueil</a></td>
+            <td><a href="homme.html" class="boutonMenu">Homme</a></td>
+            <td><a href="femme.html" class="boutonMenu">Femme</a></td>
+            <td><a href="enfant.html" class="boutonMenu">Enfant</a></td>
+            <td><a href="contact.html" class="boutonMenu">Contact</a></td>
+        </tr>
+    </table>
+</header>
+<div class="bloc1">
+    <h2 class="titreformulaire">Demande de Contact</h2>
+    <form id="contactForm" action="index.html" method="post">
+        <label for="Date du contact"> Date du contact : </label>
+        <input type="date" name="Date du contact"/><br>
+        <label for="nom"> Nom : </label>
+        <input type="text" name="nom" placeholder="Entrez votre Nom" id="nom"/><br>
+        <span id="nomValid" class="validIndicator"></span>
+        <label for="Prenom"> Prénom : </label>
+        <input type="text" name="Prenom" placeholder="Entrez votre Prénom" id="prenom"/><br>
+        <span id="prenomValid" class="validIndicator"></span>
+        <label for="email"> Email : </label>
+        <input type="email" name="email" placeholder="monmail@monsite.org"/><br>
+        <div class="genre_radio">
+            <label for="genre" class="genre" style="margin-right: 25px;"> Genre : </label>
+            <input type="radio" name="genre" value="Homme"/> Homme
+            <input type="radio" name="genre" value="Femme"/> Femme <br>
         </div>
-
-    </body>
-    <footer>
-        <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
-        <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
-        <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
-        <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-    </footer>
-        
+        <label for="Date de Naissance"> Date de Naissance : </label>
+        <input type="date" name="Date de Naissance"/><br>
+        <label for="fonction"> Fonction :</label>
+        <select id="fonction" name="fonction">
+            <option value="" selected disabled>Choisissez une fonction</option>
+            <optgroup label="Métiers de l'informatique">
+                <option value="developpeur">Développeur</option>
+                <option value="analyste">Analyste système</option>
+                <option value="administrateur">Administrateur réseau</option>
+            </optgroup>
+            <optgroup label="Métiers de la santé">
+                <option value="infirmier">Infirmier</option>
+                <option value="medecin">Médecin</option>
+                <option value="pharmacien">Pharmacien</option>
+            </optgroup>
+            <optgroup label="Métiers de l'éducation">
+                <option value="professeur">Professeur</option>
+                <option value="conseiller">Conseiller pédagogique</option>
+                <option value="bibliothecaire">Bibliothécaire</option>
+            </optgroup>
+        </select><br>
+        <label for="Sujet"> Sujet : </label>
+        <input type="text" name="Sujet" placeholder="Entrez le sujet de votre mail"/><br>
+        <label for="Contenu"> Contenu : </label>
+        <textarea name="Contenu" placeholder="Tapez ici votre mail" ></textarea><br>
+        <button type="submit" class="Envoyer">Envoyer</button>
+    </form>
+</div>
+<footer>
+    <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
+    <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
+    <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
+    <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+    <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+</footer>
+<script src="form.js"></script>
+</body>
 </html>
