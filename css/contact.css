@@ -1,176 +1,3 @@
-.bandehaut{
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color:white;
-    background-color: rgba(175, 4, 4, 0.825);
-    grid-area: "bandeau";
-    margin: 0px;
-    padding-top: 5px;
-    font-weight: bold;
-}
-body{
-    font-family: Arial, sans-serif;
-    margin: auto;
-    background-color: #e3e3e3;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 25px 125px auto 125px;
-    grid-template-areas: "bandeau"
-                        "Entete"
-                        "Principal"
-                        "Bas_de_Page "
-}
-/*Entete*/
-.bloc1{
-    grid-area: Principal;
-}
-header{
-    background: black;
-    grid-area: Entete;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    resize: none;
-}
-#menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-}
-
-.titre-logo {
-    text-align: center; /* Aligner le contenu au centre */
-}
-
-.titre-logo h1,
-.titre-logo img {
-    display: inline-block; /* Afficher en ligne */
-    vertical-align: middle; /* Alignement vertical au centre */
-}
-.logo{
-    width: 80px;
-    height: auto;
-    display: inline;
-}
-header h1{
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-.boutonMenu {
-
-    font-size: larger;
-    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
-    font-weight: bold;
-    margin-top: 1px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-    border: none;
-    background: none;
-    color: rgb(254, 254, 254);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s, border-bottom 0.3s;
-    border-bottom: 3px solid transparent; /* Bord Transparent */
-    padding-top: 10px; 
-    border-radius: 0; /* Pas de bord Rond */
-}
-
-
-.boutonMenu:hover {
-    color: white; /* Couleur du texte en hover */
-    border-bottom-color:white; /* Couleur du bord en hover */
-    background-color:transparent; /* Couleur du fond en hover */
-}
-form{
-    margin-left: 20px;
-    font-family: Arial, Helvetica, sans-serif
-}
-/* Style pour les éléments de formulaire */
-input[type="text"],
-input[type="email"],
-input[type="date"],
-select,
-textarea {
-    width: 60%; 
-    padding: 10px;
-    margin: 2px 20px; 
-    border: 2px solid #150505;
-    border-radius: 8px;
-    box-sizing: border-box;
-}
-
-label {
-    width: 10%; 
-    display: inline-block;
-    text-align: left; 
-    margin-right: 10px;
-} 
-
-textarea {
-    vertical-align: top; 
-}
-
-
-.Envoyer {
-    background-color: #3f3f3f;
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 15px;
-    margin: 4px 0px 4px 20px; 
-    cursor: pointer;
-    border-radius: 10px;
-    border: 2px solid #150505;
-    transition: background-color 0.3s;
-    font-weight: 600;
-    float: right;
-    margin-right: 400px;
-}
-.Envoyer:hover {
-    background-color: #575757;
-}
-.titreformulaire {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-
-footer{
-    text-align: center;
-    color: white;
-    background:black;
-    grid-area: Bas_de_Page;
-   
-}
-.login{
-    height: 25px;
-    width: auto;
-    float: right;
-    right: 2px;
-    top: 35px;
-    position: absolute;
-    margin-right: 10px;
-}
-.cart{
-    height: 25px;
-    width: auto;
-    float: right;
-    right: 30px;
-    top: 35px;
-    position: absolute;
-    margin-right: 10px;
-}
-
-
 /*######################## Body #################################*/
 
 body{
@@ -181,10 +8,10 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 25px 130px auto 130px;
+    grid-template-rows: 25px 130px 630px 130px;
     grid-template-areas: "bandeau bandeau"
                         "Entete Entete"
-                        "Lateral Principal"
+                        "Principal Principal"
                         "Bas_de_Page Bas_de_Page "
 }
 
@@ -284,6 +111,9 @@ header h1{
 /*######################## Bloc Principal #################################*/
 .bloc1{
     grid-area: Principal;
+    display: grid;
+    align-items: center;
+    text-align: center;
 }
 form{
     margin-left: 20px;
@@ -295,7 +125,7 @@ input[type="email"],
 input[type="date"],
 select,
 textarea {
-    width: 60%; 
+    width: 30%; 
     padding: 10px;
     margin: 2px 20px; 
     border: 2px solid #150505;
@@ -310,6 +140,20 @@ label {
     margin-right: 10px;
 } 
 
+/* New*/
+label[for="genre"] {
+    width: 183px; /* Largeur fixe pour le label "Genre" */
+    vertical-align: middle; /* Aligner verticalement avec les autres éléments */
+}
+
+.genre_radio{
+  display: flex;
+  align-items: first baseline;
+  width: 40%;
+  margin-left: 28.5%;
+}
+/* New*/
+
 textarea {
     vertical-align: top; 
 }
@@ -317,20 +161,21 @@ textarea {
 
 .Envoyer {
     background-color: #3f3f3f;
+    position: relative;
     border: none;
     color: white;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     font-size: 15px;
-    margin: 4px 0px 4px 20px; 
     cursor: pointer;
     border-radius: 10px;
     border: 2px solid #150505;
     transition: background-color 0.3s;
     font-weight: 600;
-    float: right;
-    margin-right: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    left: 17%;
 }
 .Envoyer:hover {
     background-color: #575757;
@@ -339,15 +184,12 @@ textarea {
     text-align: center;
     margin-bottom: 20px;
 }
-.genre{
-    margin-right: 25px;
-}
 
 /*######################## Bloc Lateral #################################*/
-.bloc2{
+/* .bloc2{
     background-color: beige;
     grid-area: Lateral;
-}
+} */
 
 /*######################## Footer #################################*/
 
@@ -363,6 +205,7 @@ footer img {
     height: auto;
     margin: 0 10px;
 }
+
 
 
 

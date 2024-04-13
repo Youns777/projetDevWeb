@@ -1,413 +1,179 @@
-<<<<<<< HEAD
-.bandehaut{
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color:white;
-    background-color: rgba(175, 4, 4, 0.825);
-    grid-area: "bandeau";
-    margin: 0px;
-    padding-top: 5px;
-    font-weight: bold;
-}
-=======
 /*######################## Body #################################*/
 
->>>>>>> 1b48a6aa07ba689d92eae40d4f7859de3531eafd
 body{
-    font-family: Arial, sans-serif;
-    margin: auto;
-    background-color: #e3e3e3;
-    width: 100%;
-    height: 100%;
-    display: grid;
-<<<<<<< HEAD
-    grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 5fr 15fr 5fr;
-    grid-template-areas: "bandeau"
-                        "Entete"
-                        "Principal"
-                        "Bas_de_Page "
-}
-/*Entete*/
-=======
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 25px 130px 605px 150px;
-    grid-template-areas: "bandeau bandeau"
-                        "Entete Entete"
-                        "Principal Principal"
-                        "Bas_de_Page Bas_de_Page "
+  font-family: Arial, sans-serif;
+  margin: auto;
+  background-color: #e3e3e3;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 25px 130px 605px 150px;
+  grid-template-areas: "bandeau bandeau"
+                      "Entete Entete"
+                      "Principal Principal"
+                      "Bas_de_Page Bas_de_Page "
 }
 
 /*######################## Bande Promo #################################*/
 .bandehaut{
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color:white;
-    background-color: rgba(175, 4, 4, 0.825);
-    grid-area: bandeau;
-    margin: 0px;
-    padding-top: 5px;
-    font-weight: bold;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color:white;
+  background-color: rgba(175, 4, 4, 0.825);
+  grid-area: bandeau;
+  margin: 0px;
+  padding-top: 5px;
+  font-weight: bold;
 }
 
 
 
 
 /*######################## Header #################################*/
->>>>>>> 1b48a6aa07ba689d92eae40d4f7859de3531eafd
 header{
-    background: black;
-    grid-area: Entete;
-    display: block;
-    justify-content: center;
-    align-items: center;
+  background: black;
+  grid-area: Entete;
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
 #menu{
-    display: flex;
-    justify-content: center;
-<<<<<<< HEAD
-    align-items: center;
-=======
-    align-items: flex;
->>>>>>> 1b48a6aa07ba689d92eae40d4f7859de3531eafd
-    margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex;
+  margin-left: 50px;
 }
 
 .titre-logo {
-    text-align: center; /* Aligner le contenu au centre */
+  text-align: center; /* Aligner le contenu au centre */
 }
 
 .titre-logo h1,
 .titre-logo img {
-    display: inline-block; /* Afficher en ligne */
-    vertical-align: middle; /* Alignement vertical au centre */
+  display: inline-block; /* Afficher en ligne */
+  vertical-align: middle; /* Alignement vertical au centre */
 }
 .logo{
-    width: 80px;
-    height: auto;
-    display: inline;
+  width: 80px;
+  height: auto;
+  display: inline;
 }
 header h1{
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
 }
-<<<<<<< HEAD
-.boutonMenu {
-
-    font-size: larger;
-    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
-    font-weight: bold;
-    margin-top: 1px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-=======
 
 .boutonMenu {
-    font-size: larger;
-    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
-    font-weight: bold;
-    margin-top:auto;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
->>>>>>> 1b48a6aa07ba689d92eae40d4f7859de3531eafd
-    border: none;
-    background: none;
-    color: rgb(254, 254, 254);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s, border-bottom 0.3s;
-    border-bottom: 3px solid transparent; /* Bord Transparent */
-    padding-bottom: 0px; 
-    border-radius: 0; /* Pas de bord Rond */
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace; /* Police à discuter */
+  font-weight: bold;
+  margin-top:auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 0px;
+  border: none;
+  background: none;
+  color: rgb(254, 254, 254);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 3px solid transparent; /* Bord Transparent */
+  padding-bottom: 0px; 
+  border-radius: 0; /* Pas de bord Rond */
 }
 
 
 .boutonMenu:hover {
-    color: white; /* Couleur du texte en hover */
-    border-bottom-color:white; /* Couleur du bord en hover */
-    background-color:transparent; /* Couleur du fond en hover */
+  color: white; /* Couleur du texte en hover */
+  border-bottom-color:white; /* Couleur du bord en hover */
+  background-color:transparent; /* Couleur du fond en hover */
 }
-<<<<<<< HEAD
-
-footer{
-    text-align: center;
-    color: white;
-    background:black;
-    grid-area: Bas_de_Page;
-   
-}
-=======
->>>>>>> 1b48a6aa07ba689d92eae40d4f7859de3531eafd
 .login{
-    height: 25px;
-    width: auto;
-    float: right;
-    right: 2px;
-    top: 35px;
-    position: absolute;
-    margin-right: 10px;
+  height: 25px;
+  width: auto;
+  float: right;
+  right: 2px;
+  top: 35px;
+  position: absolute;
+  margin-right: 10px;
 }
 .cart{
-    height: 25px;
-    width: auto;
-    float: right;
-    right: 30px;
-    top: 35px;
-    position: absolute;
-    margin-right: 10px;
-}
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-body{
-	font-family: 'Poppins', sans-serif;
-	font-weight: 300;
-	line-height: 1.7;
-	color: #b00409;
-	background-color: #f8f8f9f6;
-}
-a:hover {
-	text-decoration: none;
-}
-.link {
-  color: #b00;
-}
-.link:hover {
-  color: #c4c3ca;
-}
-p {
-  font-weight: 500;
-  font-size: 14px;
-}
-h4 {
-  font-weight: 600;
-}
-h6 span{
-  padding: 0 20px;
-  font-weight: 700;
-}
-.section{
-  position: relative;
-  width: 100%;
-  display: block;
-}
-.full-height{
-  min-height: 100vh;
-}
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked){
-display: none;
-}
-.checkbox:checked + label,
-.checkbox:not(:checked) + label{
-  position: relative;
-  display: block;
-  text-align: center;
-  width: 60px;
-  height: 16px;
-  border-radius: 8px;
-  padding: 0;
-  margin: 10px auto;
-  cursor: pointer;
-  background-color: #b00409;
-}
-.checkbox:checked + label:before,
-.checkbox:not(:checked) + label:before{
+  height: 25px;
+  width: auto;
+  float: right;
+  right: 30px;
+  top: 35px;
   position: absolute;
-  display: block;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  color: #b00409;
-  background-color: #020305;
-  font-family: 'unicons';
-  content: '\eb4f';
-  z-index: 20;
-  top: -10px;
-  left: -10px;
-  line-height: 36px;
-  text-align: center;
-  font-size: 24px;
-  transition: all 0.5s ease;
+  margin-right: 10px;
 }
-.checkbox:checked + label:before {
-  transform: translateX(44px) rotate(-270deg);
-}
-.card-3d-wrap {
-  position: relative;
-  width: 440px;
-  max-width: 100%;
-  height: 400px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  perspective: 800px;
-  margin-top: 60px;
-}
-.card-3d-wrapper {
-  width: 100%;
-  height: 100%;
-  position:absolute;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  transition: all 600ms ease-out; 
-}
-.card-front, .card-back {
-  width: 100%;
-  height: 100%;
-  background-color: #2b2e38;
-  background-image: url('/img/pattern_japanese-pattern-2_1_2_0-0_0_1__ffffff00_000000.png');
-  position: absolute;
-  border-radius: 6px;
-  -webkit-transform-style: preserve-3d;
-}
-.card-back {
-  transform: rotateY(180deg);
-}
-.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
-  transform: rotateY(180deg);
-}
-.center-wrap{
-  position: absolute;
-  width: 100%;
-  padding: 0 35px;
-  top: 50%;
-  left: 0;
-  transform: translate3d(0, -50%, 35px) perspective(100px);
-  z-index: 20;
-  display: block;
-}
-.form-group{ 
-  position: relative;
-  display: block;
-    margin: 0;
-    padding: 0;
-}
-.form-style {
-  padding: 13px 20px;
-  padding-left: 55px;
-  height: 48px;
-  width: 100%;
-  font-weight: 500;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.5px;
-  outline: none;
-  color: #c4c3ca;
-  background-color: #1f2029;
-  border: none;
-  -webkit-transition: all 200ms linear;
-  transition: all 200ms linear;
-  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
-}
-.form-style:focus,
-.form-style:active {
-  border: none;
-  outline: none;
-  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
-}
-.input-icon {
-  position: absolute;
-  top: 0;
-  left: 18px;
-  height: 48px;
-  font-size: 24px;
-  line-height: 48px;
-  text-align: left;
-  -webkit-transition: all 200ms linear;
-   transition: all 200ms linear;
-}
-.btn{  
-  border-radius: 4px;
-  height: 44px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  -webkit-transition : all 200ms linear;
-  transition: all 200ms linear;
-  padding: 0 30px;
-  letter-spacing: 1px;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  align-items: center;
-  background-color: #b00409;
-  color: #000000;
-}
-.btn:hover{  
-  background-color: #000000;
-  color: #d50606cf;
-  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
-}
-=======
 /*######################## Bloc Principal #################################*/
 .bloc1{
-    grid-area: Principal;
-    text-align: center;
-    display: grid;
-    align-items: center;
-    justify-items: center;
+  grid-area: Principal;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 
 }
 .bloc1 h2{
-    margin-left: 10px;
+  margin-left: 10px;
 }
 table{
-    text-align: center;
-    margin-bottom: 35px;
-    margin-left: 60px;
+  text-align: center;
+  margin-bottom: 35px;
+  margin-left: 60px;
 }
 .chaussure {
-    display: inline-block;
-    margin: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
 }
 
 .chaussure img {
-    width: 100%;
-    height: auto;
-    
+  width: 100%;
+  height: auto;
+  
 }
 
 .chaussure:hover {
-    transform: translateY(-5px); 
-    transition: transform 0.3s ease; /* Animation de transition fluide */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  transform: translateY(-5px); 
+  transition: transform 0.3s ease; /* Animation de transition fluide */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
 }
 
 .container{
-    width: 50%;
-    display: grid;
-    text-align: center;
-    align-items: center;
-    justify-items: center;
+  width: 50%;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .form_inscription{
-    width: 60%;
+  width: 60%;
 }
 
 .form_connexion{
-    width: 60%;
+  width: 60%;
 }
 
 form{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ccc;
-    border-radius: 5%;
-    margin-bottom: 10%;
-    padding: 3%;
-    width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ccc;
+  border-radius: 5%;
+  margin-bottom: 10%;
+  padding: 3%;
+  width: 100%;
 }
 
 .form2{
-    margin-bottom: 50%;
+  margin-bottom: 50%;
 }
 
 /* Style pour les éléments de formulaire */
@@ -415,68 +181,67 @@ input[type="text"],
 input[type="email"],
 input[type="date"], 
 input[type="password"] {
-    width: 50%; 
-    padding: 10px;
-    margin: 2px 20px; 
-    border: 2px solid #150505;
-    border-radius: 8px;
-    box-sizing: border-box;
+  width: 50%; 
+  padding: 10px;
+  margin: 2px 20px; 
+  border: 2px solid #150505;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 label {
-    width: 30%; 
-    display: inline-block;
-    text-align: left; 
-    margin-right: 10px;
+  width: 30%; 
+  display: inline-block;
+  text-align: left; 
+  margin-right: 10px;
 } 
 
 textarea {
-    vertical-align: top; 
+  vertical-align: top; 
 }
 
 .Inscription{
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .Connexion{
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 
 .footer_form{
-    margin-bottom: 20px;
-    margin-top: 0%;
-    display: block ruby;
+  margin-bottom: 20px;
+  margin-top: 0%;
+  display: block ruby;
 }
 
 .footer_form a{
-    padding: 2%;
-    text-decoration: none;
-    color: darkmagenta;
-    font-weight: bold;
+  padding: 2%;
+  text-decoration: none;
+  color: darkmagenta;
+  font-weight: bold;
 }
 
 /*######################## Bloc Lateral #################################*/
 /* .bloc2{
-    background-color: beige;
-    grid-area: Lateral;
+  background-color: beige;
+  grid-area: Lateral;
 }
- */
+*/
 /*######################## Footer #################################*/
 
 footer{
-    text-align: center;
-    color: white;
-    background:black;
-    grid-area: Bas_de_Page;
-   
+  text-align: center;
+  color: white;
+  background:black;
+  grid-area: Bas_de_Page;
+ 
 }
 
 footer img {
-    width: 30px;
-    height: auto;
-    margin: 0 10px;
+  width: 30px;
+  height: auto;
+  margin: 0 10px;
 }
 
 
->>>>>>> 1b48a6aa07ba689d92eae40d4f7859de3531eafd
