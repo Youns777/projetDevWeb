@@ -5,7 +5,7 @@ session_start();
 
 // Définir le tableau des catégories avec les produits et leurs informations
 
-$csvFile = fopen('C:\Users\Administrator\ProjetDevWeb\projetDevWeb\csv\produits.csv', 'r');
+$csvFile = fopen('php\csv\produits.csv', 'r');
 $categories = [];
 
 // Skip the first line (header)
@@ -32,9 +32,11 @@ function afficherMenu() {
     if (isset($_SESSION['categories'])) {
         $categories = $_SESSION['categories'];
         echo '<tr>';
+        echo '<td><a href="index.html" class="boutonMenu">Accueil</a></td>';
         foreach ($categories as $categorie => $produits) {
             echo '<td><a href="produits.php?cat=' . $categorie . '" class="boutonMenu">' . ucfirst($categorie) . '</a></td>';
         }
+        echo '<td><a href="contact.html" class="boutonMenu">Contact</a></td>';
         echo '</tr>';
     }
 }
