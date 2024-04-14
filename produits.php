@@ -7,6 +7,30 @@ $categorie = $_GET['cat'] ?? '';
 
 // Récupérer les produits de la catégorie
 $produits = $_SESSION['categories'][$categorie] ?? [];
+
+// Récupérer les prix de tous les produits de la catégorie
+$prixProduits = array_column($produits, 'Prix');
+
+// Définir minPrix et maxPrix aux prix minimum et maximum des produits si non spécifiés
+$minPrix = (isset($_GET['minPrix']) && $_GET['minPrix'] !== '') ? $_GET['minPrix'] : min($prixProduits);
+$maxPrix = (isset($_GET['maxPrix']) && $_GET['maxPrix'] !== '') ? $_GET['maxPrix'] : max($prixProduits);
+
+$couleurs = $_GET['couleur'] ?? [];
+$types = $_GET['type'] ?? [];
+
+
+// Récupérer toutes les couleurs et types uniques parmi les produits
+$couleursUniques = array_unique(array_column($produits, 'Couleur'));
+$typesUniques = array_unique(array_column($produits, 'Type'));
+
+// Filtrer les produits en fonction des filtres
+$produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, $couleurs, $types) {
+    return
+        ($produit['Prix'] >= $minPrix) &&
+        ($produit['Prix'] <= $maxPrix) &&
+        (empty($couleurs) || in_array($produit['Couleur'], $couleurs)) &&
+        (empty($types) || in_array($produit['Type'], $types));
+});
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +44,7 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
     <script src="js/homme.js"></script>
     <title>Homme - ShopTaSneakers</title>
 </head>
+
 <body>
     <div class="bandehaut">
         Livraison Gratuite à partir de 50€ d'achats. Retour offert !
@@ -37,7 +62,31 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
         </tr>
     </table>
     </header>
-      
+
+    <aside>
+        <h2>Filtres</h2>
+            <form action="produits.php" method="get">
+                <input type="hidden" name="cat" value="<?php echo $categorie; ?>">
+                <h3>Prix</h3>
+                
+                <label> Prix min : </label><input type="number" name="minPrix" placeholder="Prix min" value="<?php echo $_GET['minPrix'] ?? ''; ?>">
+                <label> Prix max : </label><input type="number" name="maxPrix" placeholder="Prix max" value="<?php echo $_GET['maxPrix'] ?? ''; ?>">
+                
+                <h3>Couleur</h3>
+                <?php foreach ($couleursUniques as $couleur): ?>
+                    <label><input type="checkbox" name="couleur[]" value="<?php echo $couleur; ?>" <?php echo in_array($couleur, $couleurs) ? 'checked' : ''; ?>> <?php echo ucfirst($couleur); ?></label><br>
+                <?php endforeach; ?>
+
+                <h3>Type</h3>
+                <?php foreach ($typesUniques as $type): ?>
+                    <label><input type="checkbox" name="type[]" value="<?php echo $type; ?>" <?php echo in_array($type, $types) ? 'checked' : ''; ?>> <?php echo ucfirst($type); ?></label><br>
+                <?php endforeach; ?>
+
+                <input type="submit" value="Appliquer les filtres">
+            </form>
+            <button class="stock_button"> Afficher stock </button>
+    </aside>
+
     <div class="bloc1">
     <h2>Nos Produits <?php echo ucfirst($categorie); ?> :</h2>
     <section class="produits">
@@ -54,7 +103,6 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
         </div>
     <?php endforeach; ?>
 </section>
-    <button class="stock_button"> Afficher stock </button>
 </div>
     <footer>
 
