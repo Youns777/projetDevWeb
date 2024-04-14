@@ -16,7 +16,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-template-rows: 25px 125px 500px 125px;
+    grid-template-rows: 25px 125px auto 125px;
     grid-template-areas: "bandeau"
                         "Entete"
                         "Principal"
@@ -167,3 +167,13 @@ footer{
     margin-right: 10px;
 }
 
+.text-danger{
+    color: red;
+}
+.text-sucess{
+    color: green;
+}
+small{
+    margin-left: 180px;
+    font-weight: bold ;
+}
