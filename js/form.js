@@ -142,7 +142,7 @@ const validGenre = function() {
         genreSmall.classList.add('text-danger');
         return false;
     } else {
-        genreSmall.innerHTML = 'Genre valide.';
+        genreSmall.innerHTML = '';
         genreSmall.classList.remove('text-danger');
         genreSmall.classList.add('text-success');
         return true;
