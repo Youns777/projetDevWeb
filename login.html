@@ -40,19 +40,31 @@
             <h2 class="titreformulaire">Bienvenue au royaume de la sneakers !</h2>
             <div class="container">
                 <div class="form_inscription">   
-                    <form action="" methode="post">
+                    <form action="" methode="post" id="inscription_form">
                         <label for="nom" > Nom : </label>    
                         <input type="text" name="nom" placeholder="Entrez votre Nom"/> <br>
+                        <small id="nom_small"></small><br>
+
                         <label for="Prenom" > Prénom : </label>    
                         <input type="text" name="prenom" placeholder="Entrez votre Prenom"/> <br>
+                        <small id="prenom_small"></small><br>
+
                         <label for="email" > Email : </label>    
                         <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
+                        <small id="email_small"></small><br>
+
                         <label for="Adresse" > Adresse : </label>    
                         <input type="text" name="adresse" placeholder="Entrez votre adresse"/> <br>
+                        <small id="adresse_small"></small><br>
+
                         <label for="Date_Naissance" > Date de Naissance : </label>
                         <input type="date" name="Date de Naissance"/> <br>
+                        <small id="dateNaissance_small"></small><br>
+
                         <label for="Mot_passe" name="password">Mot de passe : </label>
                         <input type="password" name="password" placeholder="******"/> <br>
+                        <small id="password_small"></small><br>
+
 
                         <input type="submit" value="Inscription" class="Inscription"/>
                     </form>
@@ -61,8 +73,12 @@
                     <form action="" methode="post" class="form2">
                         <label for="email" > Email : </label>    
                         <input type="email" name="email" placeholder="monmail@monsite.org"/> <br>
+                        <small id="email_small"></small><br>
+
                         <label for="Mot_passe" name="password">Mot de passe : </label>
                         <input type="password" name="password" placeholder="******"/> <br>
+                        <small id="password_small"></small><br>
+
 
                         <input type="submit" value="Connexion" class="Connexion"/>
                     </form>
@@ -73,6 +89,8 @@
                 </div>
             </div>
         </div>
+        <script src="js/login_verif.js"></script>
+
     </body>
     
 
@@ -84,8 +102,4 @@
         <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
     </footer>
 </html>
-<<<<<<< HEAD
     
-=======
-    
->>>>>>> 91764a15a7155b9903272c327360217e3d630c85
