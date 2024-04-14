@@ -93,7 +93,7 @@ const validEmail = function(inputEmail) {
     let small = document.querySelector('#email_small');
 
     if (emailRegExp.test(inputEmail)) {
-        small.innerHTML = 'Adresse mail alide.';
+        small.innerHTML = 'Adresse mail valide.';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
         return true;

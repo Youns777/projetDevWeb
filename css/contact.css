@@ -185,7 +185,7 @@ textarea {
     margin-bottom: 20px;
 }
 .text-danger{
-    color: red;
+    color: rgba(175, 4, 4, 0.825);;
 }
 
 .text-sucess{
