@@ -184,6 +184,17 @@ textarea {
     text-align: center;
     margin-bottom: 20px;
 }
+.text-danger{
+    color: red;
+}
+
+.text-sucess{
+    color: green;
+}
+
+small{
+    font-weight: bold;
+}
 
 /*######################## Bloc Lateral #################################*/
 /* .bloc2{
