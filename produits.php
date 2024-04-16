@@ -40,22 +40,57 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
       
     <div class="bloc1">
     <h2>Nos Produits <?php echo ucfirst($categorie); ?> :</h2>
-    <section class="produits">
-    <?php foreach ($produits as $produit): ?>
-        <div class="chaussure">
-            <img src="<?php echo $produit['Image']; ?>" alt="produit">
-            <h3><?php echo $produit['Produit']; ?></h3>
-            <?php echo $produit['Prix']; ?>€<br>
-            <!-- ... -->
-            <div class="stock">
-                <p class="line_stock"> Stock : <?php echo $produit['Stock']; ?> </p>
-            </div>
-            <button class="ajouter-panier">Ajouter au panier</button>
-        </div>
-    <?php endforeach; ?>
-</section>
-    <button class="stock_button"> Afficher stock </button>
-</div>
+        <section class="produits">
+            <table>
+                <tr>
+                    <?php
+                    // Boucle pour chaque produit
+                    $count = 0;
+                    foreach ($produits as $produit):
+                    ?>
+                        <td class="chaussure">
+                            <img src="<?php echo $produit['Image']; ?>" alt="produit">
+                            <h3><?php echo $produit['Produit']; ?></h3>
+                            <?php echo $produit['Prix']; ?>€<br>
+                            Taille :
+                            <select name="taille">
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                            </select><br>
+                            Quantité :
+                            <select name="quantite" class="quantite">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="stock">
+                                <p class="line_stock"> Stock : <?php echo $produit['Stock']; ?> </p>
+                            </div>
+                            <button class="ajouter-panier">Ajouter au panier</button>
+                        </td>
+                        <?php
+                        // Si le nombre de produits dans la ligne est un multiple de 4 ou c'est le dernier produit, fermez la ligne et commencez une nouvelle ligne
+                        $count++;
+                        if ($count % 4 == 0 || $count == count($produits)):
+                        ?>
+                </tr>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </table>
+        </section>
+        <button class="stock_button"> Afficher stock </button>
+    </div>
+
     <footer>
 
         <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>

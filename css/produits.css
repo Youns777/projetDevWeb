@@ -116,9 +116,9 @@ header h1{
 }
 /* ajout */
 .produits {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* fin ajout */
 table{
@@ -133,14 +133,14 @@ table{
     text-align: center;
     border: 1px solid #ccc;
     padding: 10px;
-    width: auto;
+    width: 200px;
     border-radius: 5px;
 }
 
 .chaussure img {
     width: 100%;
     height: auto;
-    
+    transition: transform 0.3s ease;
 }
 
 .chaussure:hover {
@@ -216,6 +216,7 @@ footer img {
 /*######################## JavaScript #################################*/
 
 /*Rendre la transition du Zoom plus fluide */
-.chaussure img {
+/* .chaussure img {
     transition: transform 0.3s ease;
   }
+ */
