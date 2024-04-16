@@ -54,7 +54,7 @@ const validEmail = function(inputEmail) {
 
 // Fonction de validation du nom
 const validNom = function(inputNom) {
-    let nomRegExp = new RegExp('^[A-Z][A-Za-zéèê\-]+$', 'i');
+    let nomRegExp = new RegExp('^[A-Z][a-zA-Zéèê \-]+$', 'i');
     let small = document.querySelector('#nom_small');
     
     if (inputNom.trim() === '') {
