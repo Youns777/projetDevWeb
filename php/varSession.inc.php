@@ -16,7 +16,9 @@ while (($row = fgetcsv($csvFile, 1000, ",")) !== FALSE) {
         'Produit' => $row[1],
         'Prix' => $row[2],
         'Image' => $row[3],
-        'Stock' => $row[4]
+        'Stock' => $row[4],
+        'Couleur' => $row[5],
+        'Type' => $row[6]
     ];
 }
 

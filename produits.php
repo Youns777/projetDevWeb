@@ -7,6 +7,30 @@ $categorie = $_GET['cat'] ?? '';
 
 // Récupérer les produits de la catégorie
 $produits = $_SESSION['categories'][$categorie] ?? [];
+
+// Récupérer les prix de tous les produits de la catégorie
+$prixProduits = array_column($produits, 'Prix');
+
+// Définir minPrix et maxPrix aux prix minimum et maximum des produits si non spécifiés
+$minPrix = (isset($_GET['minPrix']) && $_GET['minPrix'] !== '') ? $_GET['minPrix'] : min($prixProduits);
+$maxPrix = (isset($_GET['maxPrix']) && $_GET['maxPrix'] !== '') ? $_GET['maxPrix'] : max($prixProduits);
+
+$couleurs = $_GET['couleur'] ?? [];
+$types = $_GET['type'] ?? [];
+
+
+// Récupérer toutes les couleurs et types uniques parmi les produits
+$couleursUniques = array_unique(array_column($produits, 'Couleur'));
+$typesUniques = array_unique(array_column($produits, 'Type'));
+
+// Filtrer les produits en fonction des filtres
+$produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, $couleurs, $types) {
+    return
+        ($produit['Prix'] >= $minPrix) &&
+        ($produit['Prix'] <= $maxPrix) &&
+        (empty($couleurs) || in_array($produit['Couleur'], $couleurs)) &&
+        (empty($types) || in_array($produit['Type'], $types));
+});
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +44,7 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
     <script src="js/homme.js"></script>
     <title>Homme - ShopTaSneakers</title>
 </head>
+
 <body>
     <div class="bandehaut">
         Livraison Gratuite à partir de 50€ d'achats. Retour offert !
@@ -32,30 +57,99 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
         <a href="panier.html"><img src="img/cart.png" class="cart"></a>
         <a href="login.html"><img src="img/login.png" class="login"></a>
         <table id="menu">
-        <tr>
-            <?php afficherMenu(); ?>
-        </tr>
-    </table>
+            <tr>
+                <?php afficherMenu(); ?>
+            </tr>
+        </table>
     </header>
-      
+
+    <aside>
+        <h2>Filtres</h2>
+            <form action="produits.php" method="get">
+                <input type="hidden" name="cat" value="<?php echo $categorie; ?>">
+                <h3>Prix</h3>
+                
+                <label> Prix min : </label><input type="number" name="minPrix" placeholder="Prix min" value="<?php echo $_GET['minPrix'] ?? ''; ?>">
+                <label> Prix max : </label><input type="number" name="maxPrix" placeholder="Prix max" value="<?php echo $_GET['maxPrix'] ?? ''; ?>">
+                
+                <h3>Couleur</h3>
+                <?php foreach ($couleursUniques as $couleur): ?>
+                    <label><input type="checkbox" name="couleur[]" value="<?php echo $couleur; ?>" <?php echo in_array($couleur, $couleurs) ? 'checked' : ''; ?>> <?php echo ucfirst($couleur); ?></label><br>
+                <?php endforeach; ?>
+
+                <h3>Type</h3>
+                <?php foreach ($typesUniques as $type): ?>
+                    <label><input type="checkbox" name="type[]" value="<?php echo $type; ?>" <?php echo in_array($type, $types) ? 'checked' : ''; ?>> <?php echo ucfirst($type); ?></label><br>
+                <?php endforeach; ?>
+
+                <input type="submit" value="Appliquer les filtres">
+            </form>
+            <button class="stock_button"> Afficher stock </button>
+    </aside>
+
     <div class="bloc1">
     <h2>Nos Produits <?php echo ucfirst($categorie); ?> :</h2>
     <section class="produits">
-    <?php foreach ($produits as $produit): ?>
-        <div class="chaussure">
-            <img src="<?php echo $produit['Image']; ?>" alt="produit">
-            <h3><?php echo $produit['Produit']; ?></h3>
-            <?php echo $produit['Prix']; ?>€<br>
-            <!-- ... -->
-            <div class="stock">
-                <p class="line_stock"> Stock : <?php echo $produit['Stock']; ?> </p>
-            </div>
-            <button class="ajouter-panier">Ajouter au panier</button>
-        </div>
-    <?php endforeach; ?>
-</section>
-    <button class="stock_button"> Afficher stock </button>
-</div>
+            <table>
+                <tr>
+                    <?php
+                    // Boucle pour chaque produit
+                    $count = 0;
+                    foreach ($produits as $produit):
+                    ?>
+                        <td class="chaussure">
+                            <img src="<?php echo $produit['Image']; ?>" alt="produit">
+                            <h3><?php echo $produit['Produit']; ?></h3>
+                            <?php echo $produit['Prix']; ?>€<br>
+                            Taille :
+                            <select name="taille">
+                                <?php
+                                
+                                $tailles_disponibles = [];  // tab des tailles
+
+                                switch ($categorie) {
+                                    case 'Homme':
+                                    case 'Femme':
+                                        $tailles_disponibles = range(40, 49);
+                                        break;
+                                    case 'Enfant':
+                                        $tailles_disponibles = range(35, 40);
+                                        break;
+                                    default:
+                                        $tailles_disponibles = range(35, 49);
+                                        break;
+                                }
+
+                                // Générer les options de la liste déroulante
+                                foreach ($tailles_disponibles as $taille) {
+                                    echo '<option value="' . $taille . '">' . $taille . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                            Quantité :
+                            <select name="quantite" class="quantite">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="stock">
+                                <p class="line_stock"> Stock : <?php echo $produit['Stock']; ?> </p>
+                            </div>
+                            <button class="ajouter-panier">Ajouter au panier</button>
+                        </td>
+                        <?php
+                        // Si le nombre de produits dans la ligne est un multiple de 4 ou c'est le dernier produit, fermez la ligne et commencez une nouvelle ligne
+                        $count++;
+                        if ($count % 4 == 0 || $count == count($produits)):
+                        ?>
+                </tr>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </table>
+        </section>
+    </div>
     <footer>
 
         <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
