@@ -35,7 +35,7 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
         <tr>
             <?php afficherMenu(); ?>
         </tr>
-    </table>
+        </table>
     </header>
       
     <div class="bloc1">
@@ -54,16 +54,28 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
                             <?php echo $produit['Prix']; ?>€<br>
                             Taille :
                             <select name="taille">
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="47">47</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
+                                <?php
+                                
+                                $tailles_disponibles = [];  // tab des tailles
+
+                                switch ($categorie) {
+                                    case 'Homme':
+                                    case 'Femme':
+                                        $tailles_disponibles = range(40, 49);
+                                        break;
+                                    case 'Enfant':
+                                        $tailles_disponibles = range(35, 40);
+                                        break;
+                                    default:
+                                        $tailles_disponibles = range(35, 49);
+                                        break;
+                                }
+
+                                // Générer les options de la liste déroulante
+                                foreach ($tailles_disponibles as $taille) {
+                                    echo '<option value="' . $taille . '">' . $taille . '</option>';
+                                }
+                                ?>
                             </select><br>
                             Quantité :
                             <select name="quantite" class="quantite">
