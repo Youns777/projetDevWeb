@@ -1,6 +1,6 @@
 <?php
 // Inclure le fichier varSession.inc.php
-include 'php/varSession.inc.php';
+include 'varSession.inc.php';
 
 // Récupérer la catégorie à afficher à partir de l'URL
 $categorie = $_GET['cat'] ?? '';
@@ -13,7 +13,7 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/produits.css">
+    <link rel="stylesheet" href="../css/produits.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -26,11 +26,11 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
     </div>
     <header>    
         <div class="titre-logo">
-            <a href="index.html"><img src="img/logo.png" class="logo"></a>       
+            <a href="index.html"><img src="../img/logo.png" class="logo"></a>       
             <h1>ShopTaSneakers</h1>
         </div>
-        <a href="panier.html"><img src="img/cart.png" class="cart"></a>
-        <a href="login.html"><img src="img/login.png" class="login"></a>
+        <a href="panier.html"><img src="../img/cart.png" class="cart"></a>
+        <a href="login.html"><img src="../img/login.png" class="login"></a>
         <table id="menu">
         <tr>
             <?php afficherMenu(); ?>
@@ -107,10 +107,10 @@ $produits = $_SESSION['categories'][$categorie] ?? [];
 
         <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
         <div>
-            <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
-            <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
-            <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="../img/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="../img/linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="../img/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="../img/instagram.png" alt="Instagram"></a>
         </div>
         </footer>
         <script src="js/zoom.js"></script>
