@@ -38,12 +38,18 @@ header{
     justify-content: center;
     align-items: center;
 }
-#menu{
+#menu {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex;
     margin-left: 50px;
 }
+table {
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 35px;
+}
+
 
 .titre-logo {
     text-align: center; /* Aligner le contenu au centre */

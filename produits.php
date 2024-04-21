@@ -1,12 +1,38 @@
 <?php
 // Inclure le fichier varSession.inc.php
-include 'php/varSession.inc.php';
+session_start();
+
+// Définir le tableau des catégories avec les produits et leurs informations
+$csvFile = fopen('php\csv\produits.csv', 'r');
+$categories = [];
+$produits = [];
+
+// Skip the first line (header)
+fgetcsv($csvFile);
+
+while (($row = fgetcsv($csvFile, 1000, ",")) !== FALSE) {
+    $produit = [
+        'ID' => $row[0],
+        'Produit' => $row[2],
+        'Prix' => $row[3],
+        'Image' => $row[4],
+        'Stock' => $row[5],
+        'Couleur' => $row[6],
+        'Type' => $row[7],
+        'Description' => $row[8],
+        'Matiere' => $row[9]
+    ];
+    $categories[$row[1]][] = $produit;
+    $produits[$row[0]] = $produit;
+}
+
+fclose($csvFile);
 
 // Récupérer la catégorie à afficher à partir de l'URL
 $categorie = $_GET['cat'] ?? '';
 
 // Récupérer les produits de la catégorie
-$produits = $_SESSION['categories'][$categorie] ?? [];
+$produits = $categories[$categorie] ?? [];
 
 // Récupérer les prix de tous les produits de la catégorie
 $prixProduits = array_column($produits, 'Prix');
@@ -49,20 +75,9 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
     <div class="bandehaut">
         Livraison Gratuite à partir de 50€ d'achats. Retour offert !
     </div>
-    <header>    
-        <div class="titre-logo">
-            <a href="index.html"><img src="img/logo.png" class="logo"></a>       
-            <h1>ShopTaSneakers</h1>
-        </div>
-        <a href="panier.html"><img src="img/cart.png" class="cart"></a>
-        <a href="login.html"><img src="img/login.png" class="login"></a>
-        <table id="menu">
-            <tr>
-                <?php afficherMenu(); ?>
-            </tr>
-        </table>
-    </header>
 
+    <?php include 'php/header.php'; ?>
+    
     <aside>
         <h2>Filtres</h2>
             <form action="produits.php" method="get">
@@ -99,7 +114,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                     ?>
                         <td class="chaussure">
                             <img src="<?php echo $produit['Image']; ?>" alt="produit">
-                            <h3><?php echo $produit['Produit']; ?></h3>
+                            <h3><a href="infobox.php?cat=<?php echo $categorie; ?>&id=<?php echo $produit['ID']; ?>"><?php echo $produit['Produit']; ?></a></h3>
                             <?php echo $produit['Prix']; ?>€<br>
                             Taille :
                             <select name="taille">
@@ -150,16 +165,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
             </table>
         </section>
     </div>
-    <footer>
-
-        <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
-        <div>
-            <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
-            <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
-            <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-        </div>
-        </footer>
+    <?php include 'php/footer.php'; ?>
         <script src="js/zoom.js"></script>
     </body>
 </html>

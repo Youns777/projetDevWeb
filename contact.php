@@ -11,24 +11,7 @@
 </head>
 <body>
     <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
-    <header>
-        <div class="titre-logo">
-            <a href="index.html"><img src="img/logo.png" class="logo"></a>       
-            <h1>ShopTaSneakers</h1>
-        </div>
-        <a href="panier.html"><img src="img/cart.png" class="cart"></a>
-        <a href="login.html"><img src="img/login.png" class="login"></a>
-        <br>
-        <table id="menu">
-            <tr>
-                <td><a href="index.html" class="boutonMenu">Accueil</a></td>
-                <td><a href="produits.php?cat=Homme" class="boutonMenu">Homme</a></td>
-                <td><a href="produits.php?cat=Femme" class="boutonMenu">Femme</a></td>
-                <td><a href="produits.php?cat=Enfant" class="boutonMenu">Enfant</a></td>
-                <td><a href="contact.html" class="boutonMenu">Contact</a></td>
-            </tr>
-        </table>
-    </header>
+    <?php include 'php/header.php'; ?>
         
     <div class="bloc1">
         <h2 class="titreformulaire">Demande de Contact</h2>
@@ -91,13 +74,7 @@
         </form>
     </div>
     
-    <footer>
-        <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
-        <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
-        <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
-        <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-    </footer>
+    <?php include 'php/footer.php'; ?>
     <script src="js/form.js"></script>
 </body>
 </html>
