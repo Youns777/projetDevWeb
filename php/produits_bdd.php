@@ -40,7 +40,7 @@ if (!empty($categorie) && isset($_SESSION['categories'])) {     // Vérifier si 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <script src="js/homme.js"></script>
+    <script src="../js/produits_bdd.js"></script>
     <title>Homme - ShopTaSneakers</title>
 </head>
 <body>
@@ -91,26 +91,49 @@ if (!empty($categorie) && isset($_SESSION['categories'])) {     // Vérifier si 
                             <h3><?php echo $chaussure['nom']; ?></h3>
                             <?php echo $chaussure['prix']; ?>€<br>
                             Taille :
-                            <select name="taille">
+                            <select name="select_taille">
                                 <?php
                                     // Afficher les tailles disponibles dans la liste déroulante
                                     foreach ($tailles_disponibles as $taille) {
                                         echo '<option value="' . $taille . '">' . $taille . '</option>';
                                     }                                    
-                                    ?>
+                                ?>
                             </select><br>
                             Quantité :
                             <select name="quantite" class="quantite">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option vPrimairealue="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
+                          
                             <div class="stock">
-                                <p class="line_stock"> Stock : 10 </p>
-                                /*  ligne stock php a rajouter */
+                                <?php  
+                                    if (isset($_GET['select_taille'])) {
+                                    // Récupérer la taille envoyée
+                                        $taille = $_GET['select_taille'];
+                                        
+                                        // Effectuer d'autres traitements avec la taille récupérée
+                                        
+                                        // Par exemple, exécuter une requête SQL pour récupérer le stock correspondant à la taille de la chaussure actuelle
+                                        // Remplacez cette partie par votre propre logique de récupération de stock
+                                        $rqt = $bdd->prepare("SELECT stock_dispo FROM stock WHERE taille = :taille AND nom = :nom");
+                                        $rqt->execute(array(':taille' => $taille, ':nom' => $chaussure['nom']));
+                                        $stocks = $rqt->fetchAll(); // Récupérer tous les stocks correspondants à cette taille
+                                        
+                                        // Afficher le stock disponible
+                                        foreach ($stocks as $stock) {
+                                            echo '<p class="line_stock">Stock disponible : ' . $stock['stock_dispo'] . '</p>';
+                                        }
+                                    } 
+                                    else {
+                                        // Si la taille n'a pas été envoyée, renvoyer un message d'erreur
+                                        echo 'Erreur : Taille non spécifiée dans la requête.';
+                                    }
+                                ?>
                             </div>
+
                             <button class="ajouter-panier">Ajouter au panier</button>
                         </td>
                         <?php
@@ -136,6 +159,6 @@ if (!empty($categorie) && isset($_SESSION['categories'])) {     // Vérifier si 
             <a href="#"><img src="../img/instagram.png" alt="Instagram"></a>
         </div>
         </footer>
-        <script src="js/zoom.js"></script>
+        <script src="../js/zoom.js"></script>
     </body>
 </html>
