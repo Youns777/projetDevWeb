@@ -25,7 +25,7 @@ function afficherMenu() {   // Simplifier l'écriture des menus en utilisant le 
     if (isset($_SESSION['categories'])) {
         echo '<tr>';
         foreach ($_SESSION['categories'] as $categorie) {
-            echo '<td><a href="produits.php?cat=' . $categorie['section'] . '" class="boutonMenu">' . ucfirst($categorie['section']) . '</a></td>';
+            echo '<td><a href="produits_bdd.php?cat=' . $categorie['section'] . '" class="boutonMenu">' . ucfirst($categorie['section']) . '</a></td>';
         }
         echo '</tr>';
     }

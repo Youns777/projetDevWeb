@@ -6,6 +6,7 @@ $categorie = $_GET['cat'] ?? ''; // Récupérer la catégorie à afficher à par
 
 // Récupérer les chaussures de la catégorie à partir de la base 
 
+$chaussures_unique = []; 
 if (!empty($categorie) && isset($_SESSION['categories'])) {     // Vérifier si une catégorie a été spécifiée et si elle existe dans les catégories récupérées
     // Boucler à travers les catégories pour trouver la catégorie demandée
     foreach ($_SESSION['categories'] as $cat) {  // $_SESSION['categories'] est défini dans bbd.php c'est un tab avec les catégories dedans
@@ -21,6 +22,7 @@ if (!empty($categorie) && isset($_SESSION['categories'])) {     // Vérifier si 
             $rqt->execute(array(':categorie' => $categorie));  // ici on l'excecute et on lui donne la valeur de la catégorie ou on est Homme, Femme ou Enfant
             $chaussures_unique = $rqt->fetchAll();  // ici ce tableau de chaussure contient aucun doublon mais juste toutes les paires du site 
 
+            
             $rqt = $bdd->prepare("SELECT * FROM Chaussures WHERE section = :categorie");
             $rqt->execute(array(':categorie' => $categorie));
             $chaussures = $rqt->fetchAll();   // ici on a toutes les chaussures on en aura besoin pour l'affichage des tailles et pour gérer les stock 
@@ -63,90 +65,95 @@ if (!empty($categorie) && isset($_SESSION['categories'])) {     // Vérifier si 
       
     <div class="bloc1">
     <h2>Nos Produits <?php echo $categorie; ?> :</h2>
+    
         <section class="produits">
             <table>
-                <tr>
-                    <?php
-                        $count = 0;
-
-                        // Boucle pour chaque produit
-                        foreach ($chaussures_unique as $chaussure):
-                           
-                            // Récupérer le nom de la chaussure actuelle
-                            $nom_chaussure = $chaussure['nom']; 
-
-                            // Initialiser un tableau pour stocker les tailles disponibles pour cette chaussure
-                            $tailles_disponibles = array(); 
-
-                            // Parcourir toutes les chaussures pour récupérer les tailles correspondant au nom de la chaussure actuelle
-                            foreach ($chaussures as $c) {  // ici on utilise $chaussures qui est le tableau ou on a toutes les chaussures car on veut afficher toutes les tailles pour chacune
-                                if ($c['nom'] == $nom_chaussure) {
-                                    // Ajouter la taille à la liste des tailles disponibles
-                                    $tailles_disponibles[] = $c['taille']; 
-                                }
-                            }
-                    ?>
-                        <td class="chaussure">
-                            <img src="../<?php echo $chaussure['image']; ?>" alt="produit">
-                            <h3><?php echo $chaussure['nom']; ?></h3>
-                            <?php echo $chaussure['prix']; ?>€<br>
-                            Taille :
-                            <select name="select_taille">
-                                <?php
-                                    // Afficher les tailles disponibles dans la liste déroulante
-                                    foreach ($tailles_disponibles as $taille) {
-                                        echo '<option value="' . $taille . '">' . $taille . '</option>';
-                                    }                                    
-                                ?>
-                            </select><br>
-                            Quantité :
-                            <select name="quantite" class="quantite">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option vPrimairealue="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                          
-                            <div class="stock">
-                                <?php  
-                                    if (isset($_GET['select_taille'])) {
-                                    // Récupérer la taille envoyée
-                                        $taille = $_GET['select_taille'];
-                                        
-                                        // Effectuer d'autres traitements avec la taille récupérée
-                                        
-                                        // Par exemple, exécuter une requête SQL pour récupérer le stock correspondant à la taille de la chaussure actuelle
-                                        // Remplacez cette partie par votre propre logique de récupération de stock
-                                        $rqt = $bdd->prepare("SELECT stock_dispo FROM stock WHERE taille = :taille AND nom = :nom");
-                                        $rqt->execute(array(':taille' => $taille, ':nom' => $chaussure['nom']));
-                                        $stocks = $rqt->fetchAll(); // Récupérer tous les stocks correspondants à cette taille
-                                        
-                                        // Afficher le stock disponible
-                                        foreach ($stocks as $stock) {
-                                            echo '<p class="line_stock">Stock disponible : ' . $stock['stock_dispo'] . '</p>';
-                                        }
-                                    } 
-                                    else {
-                                        // Si la taille n'a pas été envoyée, renvoyer un message d'erreur
-                                        echo 'Erreur : Taille non spécifiée dans la requête.';
-                                    }
-                                ?>
-                            </div>
-
-                            <button class="ajouter-panier">Ajouter au panier</button>
-                        </td>
+                <form method="post" action="produits_bdd.php">
+                    <tr>                    
                         <?php
-                        // Si le nombre de produits dans la ligne est un multiple de 4 ou c'est le dernier produit, fermez la ligne et commencez une nouvelle ligne
-                        $count++;
-                        if ($count % 4 == 0 || $count == count($chaussures)):
+                            $count = 0;
+
+                            // Boucle pour chaque produit
+                            foreach ($chaussures_unique as $chaussure):
+                            
+                                // Récupérer le nom de la chaussure actuelle
+                                $nom_chaussure = $chaussure['nom']; 
+
+                                // Initialiser un tableau pour stocker les tailles disponibles pour cette chaussure
+                                $tailles_disponibles = array(); 
+
+                                // Parcourir toutes les chaussures pour récupérer les tailles correspondant au nom de la chaussure actuelle
+                                foreach ($chaussures as $c) {  // ici on utilise $chaussures qui est le tableau ou on a toutes les chaussures car on veut afficher toutes les tailles pour chacune
+                                    if ($c['nom'] == $nom_chaussure) {
+                                        // Ajouter la taille à la liste des tailles disponibles
+                                        $tailles_disponibles[] = $c['taille']; 
+                                    }
+                                }
                         ?>
-                </tr>
+                            <td class="chaussure">
+                                <img src="../<?php echo $chaussure['image']; ?>" alt="produit">
+                                <h3><?php echo $chaussure['nom']; ?></h3>
+                                <?php echo $chaussure['prix']; ?>€<br>
+                                        
+                                Quantité :
+                                <select name="quantite" class="quantite">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                
+                                Taille :
+                                
+                                    <select id="tailleSelect" name="taille">
+                                        <!-- Vos options de taille seront insérées ici par PHP -->
+                                        <?php
+                                            // Afficher les tailles disponibles dans la liste déroulante
+                                            foreach ($tailles_disponibles as $taille) {
+                                                echo '<option value="' . $taille . '">' . $taille . '</option>';
+                                            }   
+                                        ?>
+                                    </select><br>
+                                
+                                <div class="stock">               
+                                    <?php                            
+                                        // Affichage du stock après soumission du formulaire
+                                        if(isset($_POST['afficher_stock'])) {
+                                            if(isset($_POST['taille'])) {
+                                                $taille = $_POST['taille'];       
+
+                                                $rqt = $bdd->prepare("SELECT stock FROM Chaussures WHERE taille = :taille AND nom = :nom");
+                                                $rqt->execute(array(':taille' => $taille, ':nom' => $chaussure['nom']));
+                                                $stock = $rqt->fetchAll(); // Récupérer tous les stocks correspondants à cette taille
+                                                
+                                                
+                                                // Afficher le stock disponible                                           
+                                                echo '<p class="line_stock">Stock disponible : ' . $stock['stock'] . '</p>';                                            
+                                            } 
+                                            else {
+                                                echo "Veuillez sélectionner une taille";
+                                            }
+                                        }                   
+                                    ?>
+                                </div>
+                                <button class="ajouter-panier">Ajouter au panier</button> 
+                                
+                                
+                            </td>
+                            <?php
+                            // Si le nombre de produits dans la ligne est un multiple de 4 ou c'est le dernier produit, fermez la ligne et commencez une nouvelle ligne
+                            $count++;
+                            if ($count % 4 == 0 || $count == count($chaussures)):
+                            ?>
+                    </tr>
+                </form>
                 <?php endif; ?>
                 <?php endforeach; ?>
             </table>
         </section>
-        <button class="stock_button"> Afficher stock </button>
+       <!--  <button class="stock_button"> Afficher stock </button> -->
+        <button type="submit" class="afficher_stock" name="afficher_stock">Afficher Stock</button>
     </div>
 
     <footer>
