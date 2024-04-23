@@ -40,7 +40,7 @@ const validEmail = function(inputEmail) {
     let small = document.querySelector('#email_small');
 
     if (emailRegExp.test(inputEmail)) {
-        small.innerHTML = 'Adresse mail valide.';
+        small.innerHTML = '';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
         return true;
@@ -63,7 +63,7 @@ const validNom = function(inputNom) {
         small.classList.add('text-danger');
         return false; // Validation échouée
     } else if (nomRegExp.test(inputNom)) {
-        small.innerHTML = 'Nom valide.';
+        small.innerHTML = '';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
         return true; // Validation réussie
@@ -86,7 +86,7 @@ const validPrenom = function(inputPrenom) {
         small.classList.add('text-danger');
         return false;
     } else if (prenomRegExp.test(inputPrenom)) {
-        small.innerHTML = 'Prénom valide.';
+        small.innerHTML = '';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
         return true;
@@ -114,7 +114,7 @@ const validDateNaissance = function(inputDate) {
         dateNaissanceSmall.classList.add('text-danger');
         return false;
     } else {
-        dateNaissanceSmall.innerHTML = 'Date de naissance valide.';
+        dateNaissanceSmall.innerHTML = '';
         dateNaissanceSmall.classList.remove('text-danger');
         dateNaissanceSmall.classList.add('text-success');
         return true;
@@ -141,7 +141,7 @@ const validPassword = function(inputPassword) {
         passwordSmall.classList.add('text-danger');
         return false;
     } else {
-        passwordSmall.innerHTML = 'Mot de passe valide.';
+        passwordSmall.innerHTML = '';
         passwordSmall.classList.remove('text-danger');
         passwordSmall.classList.add('text-success');
         return true;
@@ -161,7 +161,7 @@ const validAdresse = function(inputAdresse) {
         adresseSmall.classList.add('text-danger');
         return false;
     } else {
-        adresseSmall.innerHTML = 'Adresse valide.';
+        adresseSmall.innerHTML = '';
         adresseSmall.classList.remove('text-danger');
         adresseSmall.classList.add('text-success');
         return true;

@@ -137,6 +137,7 @@ textarea {
     border: 2px solid #150505;
     border-radius: 8px;
     box-sizing: border-box;
+    position: relative;
 }
 
 label {
@@ -146,19 +147,21 @@ label {
     margin-right: 10px;
 } 
 
-/* New*/
+
 label[for="genre"] {
-    width: 183px; /* Largeur fixe pour le label "Genre" */
-    vertical-align: middle; /* Aligner verticalement avec les autres éléments */
+    width: 31%; 
+    display: inline-block;
+    text-align: left;
+    
+    margin-right: 115px;
 }
 
 .genre_radio{
-  display: flex;
-  align-items: first baseline;
-  width: 40%;
-  margin-left: 28.5%;
-}
-/* New*/
+    display: flex;
+    align-items: first baseline;
+    width: 40%;
+    margin-left: 28.5%;
+  }
 
 textarea {
     vertical-align: top; 
@@ -166,22 +169,22 @@ textarea {
 
 
 .Envoyer {
-    background-color: #3f3f3f;
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
     position: relative;
     border: none;
-    color: white;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     font-size: 15px;
     cursor: pointer;
     border-radius: 10px;
-    border: 2px solid #150505;
     transition: background-color 0.3s;
     font-weight: 600;
     margin-top: 20px;
     margin-bottom: 20px;
     left: 17%;
+
 }
 .Envoyer:hover {
     background-color: #575757;
@@ -201,9 +204,19 @@ textarea {
 small{
     text-align: left;
     font-weight: bold;
-    margin-left: 600px;
+    margin-left: 590px;
     display: block; 
 }
+/* Style de l'icône de validation */
+.validation-icon {
+    color: green; /* Couleur de l'icône lorsque le champ est valide */
+    display: none; /* Par défaut, l'icône est masquée */
+    margin-left: 5px; /* Espacement entre l'icône et le champ */
+    font-size: 16px; /* Taille de l'icône */
+    position: absolute;
+    margin-top: 6px;
+}
+
 
 /*######################## Bloc Lateral #################################*/
 /* .bloc2{

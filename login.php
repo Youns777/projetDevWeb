@@ -104,27 +104,27 @@ if(isset($_POST['forminscription'])) {
                     <form action="" method="post" id="inscription_form">
                         <label for="nom">Nom :</label>    
                         <input type="text" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>" placeholder="Entrez votre Nom"/><br>
-                        <small id="nom_small"></small><br>
+                        <small id="nom_small"></small>
 
                         <label for="prenom">Prénom :</label>    
                         <input type="text" name="prenom" value="<?php if(isset($prenom)) {echo $prenom;}?>" placeholder="Entrez votre Prénom"/><br>
-                        <small id="prenom_small"></small><br>
+                        <small id="prenom_small"></small>
 
                         <label for="email">Email :</label>    
                         <input type="text" name="email" value="<?php if(isset($email)) {echo $email;}?>" placeholder="monmail@monsite.org"/><br>
-                        <small id="email_small"></small><br>
+                        <small id="email_small"></small>
 
                         <label for="adresse">Adresse :</label>    
                         <input type="text" name="adresse" value="<?php if(isset($adresse)) {echo $adresse;}?>" placeholder="Entrez votre adresse"/><br>
-                        <small id="adresse_small"></small><br>
+                        <small id="adresse_small"></small>
 
                         <label for="Date_Naissance">Date de Naissance :</label>
                         <input type="date" name="Date de Naissance"/><br>
-                        <small id="dateNaissance_small"></small><br>
+                        <small id="dateNaissance_small"></small>
 
                         <label for="password">Mot de passe :</label>
                         <input type="password" name="password" placeholder="******"/><br>
-                        <small id="password_small"></small><br>
+                        <small id="password_small"></small>
 
 
                         <input type="submit" value="Inscription" name="forminscription" class="Inscription"/>
@@ -134,11 +134,11 @@ if(isset($_POST['forminscription'])) {
                     <form action="" method="post" class="form2">
                         <label for="email">Email :</label>    
                         <input type="email" name="email" placeholder="monmail@monsite.org"/><br>
-                        <small id="email_small"></small><br>
+                        <small id="email_small"></small>
 
                         <label for="password">Mot de passe :</label>
                         <input type="password" name="password" placeholder="******"/><br>
-                        <small id="password_small"></small><br>
+                        <small id="password_small"></small>
 
 
                         <input type="submit" value="Connexion"  class="Connexion"/>
