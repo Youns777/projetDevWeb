@@ -114,7 +114,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                     ?>
                         <td class="chaussure">
                             <img src="<?php echo $produit['Image']; ?>" alt="produit">
-                            <h3><a href="infobox.php?cat=<?php echo $categorie; ?>&id=<?php echo $produit['ID']; ?>"><?php echo $produit['Produit']; ?></a></h3>
+                            <h3><a class="lien"href="infobox.php?cat=<?php echo $categorie; ?>&id=<?php echo $produit['ID']; ?>"><?php echo $produit['Produit']; ?></a></h3>
                             <?php echo $produit['Prix']; ?>€<br>
                             Taille :
                             <select name="taille">
