@@ -43,7 +43,7 @@ session_start();
                             </td>
                             <td>
                                 <a href="produits.php?cat=Homme" class="chaussure">
-                                    <img src="img/chaussure_classique.png" alt="produit 1">
+                                    <img src="img/chaussure_classique .png" alt="produit 1">
                                     <h3>classique</h3>
                                 </a>
                             </td>
