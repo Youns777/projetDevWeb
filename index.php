@@ -15,7 +15,7 @@
         <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
         <header>
             <div class="titre-logo">
-            <a href="index.html"><img src="img/logo.png" class="logo"></a>       
+            <a href="index.php"><img src="img/logo.png" class="logo"></a>       
             <h1>ShopTaSneakers</h1>
             </div>
             <a href="panier.html"><img src="img/cart.png" class="cart"></a>
@@ -79,15 +79,6 @@
             </section>
         </div>
     </body>    
-    <footer> <p>Copyright &copy; Société ShopTaSneakers<br>Webmaster CY Tech</p>
-        <div>
-            <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
-            <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
-            <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-        </div>
-        
-    </footer>
-        
-    </body>
+    <?php include 'footer.php'; ?>
+     </body>
 </html>
