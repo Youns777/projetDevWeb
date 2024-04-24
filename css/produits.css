@@ -164,6 +164,12 @@ table{
     left: 50%;
     margin-bottom: 2%;
 }
+
+ .afficher_stock{
+    margin-bottom: 2%;
+    margin-top: 10%;
+}
+
 /* fin ajout */
 .ajouter-panier {
     background-color: rgba(175, 4, 4, 0.825);
