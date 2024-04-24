@@ -7,7 +7,7 @@ body{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1.5fr 6fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 25px 130px auto 130px;
     grid-template-areas: "bandeau bandeau"
                         "Entete Entete"
@@ -164,12 +164,6 @@ table{
     left: 50%;
     margin-bottom: 2%;
 }
-
- .afficher_stock{
-    margin-bottom: 2%;
-    margin-top: 10%;
-}
-
 /* fin ajout */
 .ajouter-panier {
     background-color: rgba(175, 4, 4, 0.825);
@@ -197,10 +191,6 @@ select[name="taille"]:hover,
 select[name="taille"]:focus {
     border-color: #999;
 }
-#lien{
-    text-decoration: none;
-    color: black;
-}
 
 /*######################## Footer #################################*/
 
@@ -227,7 +217,7 @@ footer img {
  */
 /*######################## Bloc Lateral #################################*/
 aside {
-    background-color: #383333;
+    background-color: #333;
     grid-area: Lateral;
     padding: 20px;
     color: white;

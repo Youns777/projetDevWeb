@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet"  href="normalize.css">
     <link rel="stylesheet" type="text/css" href="css/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,37 +21,26 @@
             <input type="date" name="DateDuContact" id="DateDuContact"> <br>
             
             <label for="nom">Nom :</label>    
-            <input type="text" name="nom"  placeholder="Entrez votre Nom"/>
-            <span id="nom_icon" class="validation-icon">✓</span>
-            <br>
-            <small id="nom_small"></small>
+            <input type="text" name="nom" placeholder="Entrez votre Nom"> <br>
+            <small id="nom_small"></small><br>
             
             <label for="prenom">Prénom :</label>    
-            <input type="text" name="prenom" placeholder="Entrez votre Prenom">
-            <span id="prenom_icon" class="validation-icon">✓</span>
-            <br>
-            <small id="prenom_small"></small>
+            <input type="text" name="prenom" placeholder="Entrez votre Prenom"> <br>
+            <small id="prenom_small"></small><br>
 
             
             <label for="email">Email :</label>    
-            <input type="text" name="email" placeholder="monmail@monsite.org"> 
-            <span id="email_icon" class="validation-icon">✓</span>
-            <br>
-            <small id="email_small"></small>
+            <input type="text" name="email" placeholder="monmail@monsite.org"> <br>
+            <small id="email_small"></small><br>
             
-        
-            <div class="genre_radio">
-                <label for="genre" class="genre" > Genre: </label>
-                <input type="radio" name="genre" value="Homme"/> Homme
-                <input type="radio" name="genre" value="Femme"/> Femme <br>
-                <br><small id="genre_small"></small>
-            </div>
+            <label for="genre">Genre :</label>
+            <input type="radio" name="genre" value="Homme"> Homme
+            <input type="radio" name="genre" value="Femme"> Femme <br>
+            <small id="genre_small"></small><br>
             
             <label for="DateDeNaissance">Date de Naissance :</label>
-            <input type="date" name="DateDeNaissance" id="DateDeNaissance">
-            <span id="dateNaissance_icon" class="validation-icon">✓</span>
-            <br>
-            <small id="dateNaissance_small"></small>
+            <input type="date" name="DateDeNaissance" id="DateDeNaissance"> <br>
+            <small id="dateNaissance_small"></small><br>
             
             <label for="fonction">Fonction :</label>
             <select id="fonction" name="fonction">
@@ -74,15 +63,11 @@
             </select> <br>
             
             <label for="Sujet">Sujet :</label>
-            <input type="text" name="Sujet" placeholder="Entrez le sujet de votre mail">
-            <span id="sujet_icon" class="validation-icon">✓</span>
-            <br>
-            <small id="sujet_small"></small>
+            <input type="text" name="Sujet" placeholder="Entrez le sujet de votre mail"> <br>
+            <small id="sujet_small"></small><br>
             
             <label for="Contenu">Contenu :</label>    
-            <textarea name="Contenu" id="Contenu" placeholder="Taper ici votre mail" rows="4" cols="50"></textarea>
-            <span id="contenu_icon" class="validation-icon">✓</span>
-            <br>
+            <textarea name="Contenu" id="Contenu" placeholder="Taper ici votre mail" rows="4" cols="50"></textarea><br>
             <small id="contenu_small"></small><br>
             
             <input type="submit" value="Envoyer" class="Envoyer">

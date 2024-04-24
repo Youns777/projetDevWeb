@@ -1,7 +1,16 @@
 <?php
-// Démarrer la session
-session_start();
 
+// Démarrez la session si elle n'a pas déjà été démarrée
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Vérifiez si l'utilisateur veut se déconnecter
+if (isset($_GET['logout'])) {
+    // Supprimez les variables de session pour l'utilisateur
+    unset($_SESSION['email']);
+    unset($_SESSION['role']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +52,7 @@ session_start();
                             </td>
                             <td>
                                 <a href="produits.php?cat=Homme" class="chaussure">
-                                    <img src="img/chaussure_classique .png" alt="produit 1">
+                                    <img src="img/chaussure_classique.png" alt="produit 1">
                                     <h3>classique</h3>
                                 </a>
                             </td>

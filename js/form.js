@@ -45,25 +45,21 @@ dateNaissanceInput.addEventListener('input', function() {
 const validNom = function(inputNom) {
     let nomRegExp = new RegExp('^[A-Z][a-zA-Zéèê \-]+$', 'i');
     let small = document.querySelector('#nom_small');
-    let icon = document.querySelector('#nom_icon');
     
     if (inputNom.trim() === '') {
         small.innerHTML = 'Veuillez entrer votre nom.';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
-        icon.style.display = 'none';
         return false; // Validation échouée
     } else if (nomRegExp.test(inputNom)) {
-        small.innerHTML = ''; // Effacer le contenu
+        small.innerHTML = 'Nom valide.';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
-        icon.style.display = 'inline'; 
         return true; // Validation réussie
     } else {
         small.innerHTML = 'Nom non valide !';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
-        icon.style.display = 'none'; 
         return false; // Validation échouée
     }
 }
@@ -72,25 +68,21 @@ const validNom = function(inputNom) {
 const validPrenom = function(inputPrenom) {
     let prenomRegExp = new RegExp('^[A-Z][a-zA-Zéèê \-]+$', 'i');
     let small = document.querySelector('#prenom_small');
-    let icon = document.querySelector('#prenom_icon');
 
     if (inputPrenom.trim() === '') {
-        small.innerHTML = 'Veuillez entrer votre Prénom.';
+        small.innerHTML = 'Veuillez entrer votre prénom.';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
-        icon.style.display = 'none';
-        return false; // Validation échouée
+        return false;
     } else if (prenomRegExp.test(inputPrenom)) {
-        small.innerHTML = ''; 
+        small.innerHTML = 'Prénom valide.';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
-        icon.style.display = 'inline'; 
-        return true; 
+        return true;
     } else {
-        small.innerHTML = 'Prenom non valide !';
+        small.innerHTML = 'Prénom non valide !';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
-        icon.style.display = 'none';
         return false;
     }
 }
@@ -99,53 +91,45 @@ const validPrenom = function(inputPrenom) {
 const validEmail = function(inputEmail) {
     let emailRegExp = new RegExp('^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'i');
     let small = document.querySelector('#email_small');
-    let icon = document.querySelector('#email_icon');
 
     if (emailRegExp.test(inputEmail)) {
-        small.innerHTML = ''; // Effacer le contenu
+        small.innerHTML = 'Adresse mail valide.';
         small.classList.remove('text-danger');
         small.classList.add('text-success');
-        icon.style.display = 'inline'; 
-        return true; // Validation réussie
+        return true;
     } else {
         small.innerHTML = 'Adresse mail non valide !';
         small.classList.remove('text-success');
         small.classList.add('text-danger');
-        icon.style.display = 'none';
         return false;
     }
 };
 
 // Fonction de validation du sujet
 const validSujet = function(inputSujet) {
-    let small = document.querySelector('#sujet_small');
-    let icon = document.querySelector('#sujet_icon');
+    let sujetSmall = document.querySelector('#sujet_small');
     if (inputSujet.trim() === '') {
-        small.innerHTML = 'Veuillez entrer votre sujet.';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
-        return false; // Validation échouée
+        sujetSmall.innerHTML = 'Veuillez entrer un sujet.';
+        sujetSmall.classList.remove('text-success');
+        sujetSmall.classList.add('text-danger');
+        return false;
     } else if (inputSujet.length > 80) {
-        small.innerHTML = 'Le sujet doit contenir moins de 80 caractéres !';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
+        sujetSmall.innerHTML = 'Le sujet doit contenir moins de 80 caractères.';
+        sujetSmall.classList.remove('text-success');
+        sujetSmall.classList.add('text-danger');
         return false;
     } else {
-        small.innerHTML = ''; // Effacer le contenu
-        small.classList.remove('text-danger');
-        small.classList.add('text-success');
-        icon.style.display = 'inline'; 
-        return true; // Validation réussie
+        sujetSmall.innerHTML = 'Sujet valide.';
+        sujetSmall.classList.remove('text-danger');
+        sujetSmall.classList.add('text-success');
+        return true;
     }
 }
 
 // Fonction de validation du genre
 const validGenre = function() {
-    let small = document.querySelector('#genre_small');
-    let icon = document.querySelector('#genre_icon');
     let genreInputs = document.querySelectorAll('input[name="genre"]');
+    let genreSmall = document.querySelector('#genre_small');
     let genreChecked = false;
     genreInputs.forEach(function(input) {
         if (input.checked) {
@@ -153,16 +137,15 @@ const validGenre = function() {
         }
     });
     if (!genreChecked) {
-        small.innerHTML = 'Veuillez sélectionner un genre.';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
-        return false; // Validation échouée
+        genreSmall.innerHTML = 'Veuillez sélectionner un genre.';
+        genreSmall.classList.remove('text-success');
+        genreSmall.classList.add('text-danger');
+        return false;
     } else {
-        small.innerHTML = ''; // Effacer le contenu
-        small.classList.remove('text-danger');
-        small.classList.add('text-success');; 
-        return true; // Validation réussie
+        genreSmall.innerHTML = '';
+        genreSmall.classList.remove('text-danger');
+        genreSmall.classList.add('text-success');
+        return true;
     }
 }
 
@@ -175,54 +158,46 @@ function Compter(chaine) {
 
 // Fonction de validation du contenu
 const validContenu = function(inputContenu) {
-    let small = document.querySelector('#contenu_small');
-    let icon = document.querySelector('#contenu_icon');
+    let contenuSmall = document.querySelector('#contenu_small');
     let mots = Compter(inputContenu);
     if (inputContenu.trim() === '') {
-        small.innerHTML = 'Veuillez sélectionner un contenu.';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
+        contenuSmall.innerHTML = 'Veuillez entrer un contenu.';
+        contenuSmall.classList.remove('text-success');
+        contenuSmall.classList.add('text-danger');
         return false;
     } else if (mots > 200) {
-        small.innerHTML = 'Le contenu doit contenir moins de 200 mots.';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
+        contenuSmall.innerHTML = 'Le contenu doit contenir moins de 200 mots.';
+        contenuSmall.classList.remove('text-success');
+        contenuSmall.classList.add('text-danger');
         return false;
     } else {
-        small.innerHTML = ''; 
-        small.classList.remove('text-danger');
-        small.classList.add('text-success');
-        icon.style.display = 'inline'; 
-        return true; 
+        contenuSmall.innerHTML = 'Contenu valide.';
+        contenuSmall.classList.remove('text-danger');
+        contenuSmall.classList.add('text-success');
+        return true;
     }
 }
 
 // Fonction de validation de la date de naissance
 const validDateNaissance = function(inputDate) {
-    let small = document.querySelector('#dateNaissance_small');
-    let icon = document.querySelector('#dateNaissance_icon');
+    let dateNaissanceSmall = document.querySelector('#dateNaissance_small');
     let dateNaissance = new Date(inputDate);
     let currentDate = new Date();
     if (isNaN(dateNaissance.getTime())) {
-        small.innerHTML = 'Veuillez entrer une date de naissance.';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
+        dateNaissanceSmall.innerHTML = 'Veuillez entrer une date de naissance valide.';
+        dateNaissanceSmall.classList.remove('text-success');
+        dateNaissanceSmall.classList.add('text-danger');
         return false;
     } else if (dateNaissance >= currentDate) {
-        small.innerHTML = 'La date de naissance doit être antérieure à la date actuelle.';
-        small.classList.remove('text-success');
-        small.classList.add('text-danger');
-        icon.style.display = 'none';
+        dateNaissanceSmall.innerHTML = 'La date de naissance doit être antérieure à la date actuelle.';
+        dateNaissanceSmall.classList.remove('text-success');
+        dateNaissanceSmall.classList.add('text-danger');
         return false;
     } else {
-        small.innerHTML = '';
-        small.classList.remove('text-danger');
-        small.classList.add('text-success');
-        icon.style.display = 'inline'; 
-        return true; // Validation réussie
+        dateNaissanceSmall.innerHTML = 'Date de naissance valide.';
+        dateNaissanceSmall.classList.remove('text-danger');
+        dateNaissanceSmall.classList.add('text-success');
+        return true;
     }
 }
 
