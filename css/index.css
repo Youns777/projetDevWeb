@@ -37,11 +37,16 @@ header{
     align-items: center;
 
 }
-#menu{
+#menu {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex;
     margin-left: 50px;
+}
+table {
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 35px;
 }
 
 .titre-logo {
@@ -87,6 +92,24 @@ header h1{
     color: white; /* Couleur du texte en hover */
     border-bottom-color:white; /* Couleur du bord en hover */
     background-color:transparent; /* Couleur du fond en hover */
+}
+.login{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 2px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+.cart{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 30px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
 }
 /*######################## Bloc Principal #################################*/
 

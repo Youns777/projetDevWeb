@@ -1,7 +1,7 @@
 // Créez un effet de zoom sur les images de chaussures :
 
 // Sélectionnez toutes les images zoomables
-var images = document.querySelectorAll('.chaussure img');
+var images = document.querySelectorAll('.chaussure img, .produit img, .produit > img');
 
 // Pour chaque image
 for (var i = 0; i < images.length; i++) {
@@ -30,9 +30,6 @@ for (var i = 0; i < images.length; i++) {
 /*Ouvre une fenêtre modale avec l'image zoomée :
 - Cliquez sur une image pour ouvrir une fenêtre modale avec l'image zoomée.
 - Cliquez hors de la fenêtre modale pour la fermer.*/
-
-// Sélectionnez toutes les images zoomables
-var images = document.querySelectorAll('.chaussure img');
 
 // Pour chaque image
 for (var i = 0; i < images.length; i++) {

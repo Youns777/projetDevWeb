@@ -7,11 +7,11 @@ body{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1.5fr 6fr;
     grid-template-rows: 25px 130px auto 130px;
     grid-template-areas: "bandeau bandeau"
                         "Entete Entete"
-                        "Principal Principal"
+                        "Lateral Principal"
                         "Bas_de_Page Bas_de_Page "
 }
 
@@ -38,18 +38,13 @@ header{
     justify-content: center;
     align-items: center;
 }
-#menu {
+#menu{
     display: flex;
     justify-content: center;
     align-items: flex;
     margin-left: 50px;
-}
-table {
-    text-align: center;
-    margin-top: 18px;
-    margin-bottom: 35px;
-}
 
+}
 
 .titre-logo {
     text-align: center; /* Aligner le contenu au centre */
@@ -71,14 +66,13 @@ header h1{
     color: white;
 }
 .boutonMenu {
-
     font-size: larger;
     font-family: 'Courier New', Courier, monospace; /* Police à discuter */
     font-weight: bold;
-    margin-top: 1px;
+    margin-top:auto;
     margin-left: 5px;
     margin-right: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     border: none;
     background: none;
     color: rgb(254, 254, 254);
@@ -117,112 +111,90 @@ header h1{
 /*######################## Bloc Principal #################################*/
 .bloc1{
     grid-area: Principal;
-    display: grid;
-    align-items: center;
-    text-align: center;
 }
-form{
-    margin-left: 20px;
-    font-family: Arial, Helvetica, sans-serif
+.bloc1 h2{
+    margin-left: 3%;
 }
-/* Style pour les éléments de formulaire */
-input[type="text"],
-input[type="email"],
-input[type="date"],
-select,
-textarea {
-    width: 30%; 
-    padding: 10px;
-    margin: 2px 20px; 
-    border: 2px solid #150505;
-    border-radius: 8px;
-    box-sizing: border-box;
-    position: relative;
-}
-
-label {
-    width: 10%; 
-    display: inline-block;
-    text-align: left; 
-    margin-right: 10px;
-} 
-
-
-label[for="genre"] {
-    width: 31%; 
-    display: inline-block;
-    text-align: left;
-    
-    margin-right: 115px;
-}
-
-.genre_radio{
+/* ajout */
+.produits {
     display: flex;
-    align-items: first baseline;
-    width: 40%;
-    margin-left: 28.5%;
-  }
-
-textarea {
-    vertical-align: top; 
+    justify-content: center;
+    align-items: center;
+}
+/* fin ajout */
+table{
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 35px;
 }
 
+.chaussure {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
 
-.Envoyer {
+.chaussure img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.chaussure:hover {
+    transform: translateY(-5px); 
+    transition: transform 0.3s ease; /* Animation de transition fluide */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+/* ajout */
+.quantite{
+    margin-top: 3%;
+}
+
+.line_stock{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.stock_button{
+    position: relative;
+    left: 50%;
+    margin-bottom: 2%;
+}
+/* fin ajout */
+.ajouter-panier {
     background-color: rgba(175, 4, 4, 0.825);
     color: white;
-    position: relative;
-    border: none;
-    padding: 10px 25px;
+    padding: 8px 20px;
     text-align: center;
     text-decoration: none;
-    font-size: 15px;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
     cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    left: 17%;
-
+    border: none;
+    border-radius: 4px;
 }
-.Envoyer:hover {
-    background-color: #575757;
-}
-.titreformulaire {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.text-danger{
-    color: rgba(175, 4, 4, 0.825);;
+select[name="taille"] {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #444;
 }
 
-.text-sucess{
-    color: green;
+select[name="taille"]:hover,
+select[name="taille"]:focus {
+    border-color: #999;
 }
-
-small{
-    text-align: left;
-    font-weight: bold;
-    margin-left: 590px;
-    display: block; 
+#lien{
+    text-decoration: none;
+    color: black;
 }
-/* Style de l'icône de validation */
-.validation-icon {
-    color: green; /* Couleur de l'icône lorsque le champ est valide */
-    display: none; /* Par défaut, l'icône est masquée */
-    margin-left: 5px; /* Espacement entre l'icône et le champ */
-    font-size: 16px; /* Taille de l'icône */
-    position: absolute;
-    margin-top: 6px;
-}
-
-
-/*######################## Bloc Lateral #################################*/
-/* .bloc2{
-    background-color: beige;
-    grid-area: Lateral;
-} */
 
 /*######################## Footer #################################*/
 
@@ -233,14 +205,80 @@ footer{
     grid-area: Bas_de_Page;
    
 }
+
 footer img {
     width: 30px;
     height: auto;
     margin: 0 10px;
 }
 
+/*######################## JavaScript #################################*/
 
+/*Rendre la transition du Zoom plus fluide */
+/* .chaussure img {
+    transition: transform 0.3s ease;
+  }
+ */
+/*######################## Bloc Lateral #################################*/
+aside {
+    background-color: #383333;
+    grid-area: Lateral;
+    padding: 20px;
+    color: white;
+}
 
+aside h2 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+aside form {
+    display: grid;
+    align-items: center;
+}
 
+aside form h3 {
+    margin-bottom: 5px;
+}
 
+aside form input[type="number"],
+aside form input[type="checkbox"] {
+    margin: 0;
+}
+
+aside form input[type="submit"] {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+aside button.stock_button {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+aside form input[type="number"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+aside form input[type="number"]:focus::placeholder {
+    color: rgba(255, 255, 255, 1);
+}

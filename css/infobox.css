@@ -1,0 +1,451 @@
+/*######################## Body #################################*/
+
+body{
+    font-family: Arial, sans-serif;
+    margin: auto;
+    background-color: #e3e3e3;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/*######################## Bande Promo #################################*/
+.bandehaut{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color:white;
+    background-color: rgba(175, 4, 4, 0.825);
+    grid-area: bandeau;
+    margin: 0px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+
+
+
+/*######################## Header #################################*/
+header{
+    background: black;
+    grid-area: Entete;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+#menu{
+    display: flex;
+    justify-content: center;
+    align-items: flex;
+    margin-left: 50px;
+}
+
+.titre-logo {
+    text-align: center; /* Aligner le contenu au centre */
+}
+
+.titre-logo h1,
+.titre-logo img {
+    display: inline-block; /* Afficher en ligne */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+.logo{
+    width: 80px;
+    height: auto;
+    display: inline;
+}
+header h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.boutonMenu {
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace; /* Police à discuter */
+    font-weight: bold;
+    margin-top:auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    border: none;
+    background: none;
+    color: rgb(254, 254, 254);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent; /* Bord Transparent */
+    padding-bottom: 0px; 
+    border-radius: 0; /* Pas de bord Rond */
+}
+
+
+.boutonMenu:hover {
+    color: white; /* Couleur du texte en hover */
+    border-bottom-color:white; /* Couleur du bord en hover */
+    background-color:transparent; /* Couleur du fond en hover */
+}
+.login{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 2px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+.cart{
+    height: 25px;
+    width: auto;
+    float: right;
+    right: 30px;
+    top: 35px;
+    position: absolute;
+    margin-right: 10px;
+}
+/*######################## Bloc Principal #################################*/
+.bloc1{
+    grid-area: Principal;
+}
+.bloc1 h2{
+    margin-left: 3%;
+}
+/* ajout */
+.produits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* fin ajout */
+table{
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 35px;
+}
+
+.chaussure {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.chaussure img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.chaussure:hover {
+    transform: translateY(-5px); 
+    transition: transform 0.3s ease; /* Animation de transition fluide */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+/* ajout */
+.quantite{
+    margin-top: 3%;
+}
+
+.line_stock{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.stock_button{
+    position: relative;
+    left: 50%;
+    margin-bottom: 2%;
+}
+/* fin ajout */
+.ajouter-panier {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+select[name="taille"] {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #444;
+}
+
+select[name="taille"]:hover,
+select[name="taille"]:focus {
+    border-color: #999;
+}
+
+/*######################## Footer #################################*/
+
+
+footer{
+    text-align: center;
+    color: white;
+    background:black;
+    grid-area: Bas_de_Page;
+    bottom: 0; /* Positionne le pied de page en bas */
+    width: 100%; /* Assure que le pied de page prend toute la largeur de la page */
+}
+
+footer img {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}
+
+/*######################## JavaScript #################################*/
+
+/*Rendre la transition du Zoom plus fluide */
+/* .chaussure img {
+    transition: transform 0.3s ease;
+  }
+ */
+/*######################## Bloc Lateral #################################*/
+aside {
+    background-color: #333;
+    grid-area: Lateral;
+    padding: 20px;
+    color: white;
+}
+
+aside h2 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+aside form {
+    display: grid;
+    align-items: center;
+}
+
+aside form h3 {
+    margin-bottom: 5px;
+}
+
+aside form input[type="number"],
+aside form input[type="checkbox"] {
+    margin: 0;
+}
+
+aside form input[type="submit"] {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+aside button.stock_button {
+    background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+aside form input[type="number"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+aside form input[type="number"]:focus::placeholder {
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Style pour la présentation du produit */
+.produit {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Prend 100% de la largeur disponible */
+}
+
+/* Style pour l'image du produit */
+.produit img {
+    width: 500px; /* Augmente la largeur de l'image */
+    height: auto;
+    margin-right: 20px;
+    padding-right: 20px; /* Ajoute un peu d'espace entre l'image et la bordure */
+    transition: transform 0.3s ease;
+}
+
+/* Style pour les détails du produit */
+.produit-details {
+    flex-grow: 1;
+}
+
+/* Style pour le titre du produit */
+.produit h1 {
+    margin: 0;
+    color: #333;
+    font-size: 30px; /* Augmente la taille du texte */
+    margin-bottom: 20px; /* Ajoute un peu d'espace en dessous du titre */
+}
+
+/* Style pour la description du produit */
+.produit p {
+    margin: 15px 0; /* Augmente l'espace autour du paragraphe */
+    color: #666;
+    font-size: 18px; /* Augmente la taille du texte */
+}
+
+/* Style pour le prix du produit */
+.produit .prix {
+    color: #f60;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Style pour le stock du produit */
+.produit .stock {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+/* Style pour le stock du produit lorsqu'il est épuisé */
+.produit .stock.out-of-stock {
+    color: #f44336;
+}
+/* Style pour le bouton "Ajouter au panier" */
+.produit a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.produit #panier{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+/* Style pour le bouton "Ajouter au panier" lors du survol */
+.produit #panier:hover{
+    background-color: #333;
+}
+.produit a:hover {
+    background-color: #e3e3e3;
+}
+
+/* Style pour la section des produits suggérés */
+.produits-suggestion {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8; /* Fond clair */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Style pour le conteneur des produits suggérés */
+.produits-suggestion .produits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Style pour chaque produit suggéré */
+.produits-suggestion .produit {
+    flex: 1 0 20px; /* Chaque produit prendra au moins 40px de largeur */
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden; /* Cache tout contenu qui déborde de la boîte */
+    background-color: #fff; /* Fond clair pour chaque produit */
+    padding: 10px; /* Espace autour du contenu de chaque produit */
+    text-align: center; /* Centre le texte de chaque produit */
+}
+
+/* Style pour le lien de chaque produit suggéré */
+.produits-suggestion .produit a {
+    color: #333; /* Couleur du texte du lien */
+    transition: color 0.3s ease; /* Transition fluide de la couleur */
+}
+
+/* Style pour le lien de chaque produit suggéré lors du survol */
+.produits-suggestion .produit a:hover {
+    color: #f44336; /* Couleur du texte du lien lors du survol */
+}
+
+/* Style pour l'image de chaque produit suggéré */
+.produits-suggestion .produit img {
+    width: 100%; /* L'image prend toute la largeur disponible */
+    height: auto;
+    margin-bottom: 10px; /* Espace sous l'image */
+    transition: transform 0.3s ease;
+}
+
+/* Style pour le titre de chaque produit suggéré */
+.produits-suggestion .produit h3 {
+    font-size: 16px; /* Taille du texte plus petite */
+    margin-bottom: 5px; /* Espace sous le titre */
+}
+
+/* Style pour le prix de chaque produit suggéré */
+.produits-suggestion .produit .prix {
+    color: #f8f8f8;
+    font-size: 14px; /* Taille du texte plus petite */
+    font-weight: bold;
+}
+
+.info-box {
+    display: flex; /* Ajouté pour permettre l'alignement des éléments */
+    flex-direction: row; /* Ajouté pour étaler le texte horizontalement */
+    justify-content: space-around; /* Distribue l'espace de manière équilibrée */
+    flex-wrap: wrap; /* Permet aux éléments de se déplacer sur la ligne suivante si nécessaire */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #555; /* Fond plus foncé */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Prend 100% de la largeur disponible */
+}
+
+.info-box h2 {
+    color: #fff; /* Texte plus clair */
+    font-size: 24px; /* Taille du texte plus grande */
+    margin-bottom: 20px; /* Ajoute un peu d'espace en dessous du titre */
+}
+
+.info-box p {
+    margin: 25px 0; /* Augmente l'espace autour du paragraphe */
+    color: #fff; /* Texte plus clair */
+    font-size: 20px; /* Augmente la taille du texte */
+    line-height: 1.5; /* Augmente l'espacement entre les lignes */
+    letter-spacing: 1px; /* Augmente l'espacement entre les lettres */
+    font-weight: 500; /* Rend le texte un peu plus gras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoute une petite ombre au texte */
+}

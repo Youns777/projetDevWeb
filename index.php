@@ -1,3 +1,9 @@
+<?php
+// Démarrer la session
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -13,28 +19,8 @@
     
     <body>
         <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
-        <header>
-            <div class="titre-logo">
-            <a href="index.php"><img src="img/logo.png" class="logo"></a>       
-            <h1>ShopTaSneakers</h1>
-            </div>
-            <a href="panier.html"><img src="img/cart.png" class="cart"></a>
-
-            </a>
-            <a href="login.html">
-            <img src="img/login.png" class="login"></a>
-            <br>
-
-            <table id="menu">
-                <tr>
-                    <td><a href="index.html" class="boutonMenu">Accueil</a></td>
-                    <td><a href="homme.html" class="boutonMenu">Homme</a></td>
-                    <td><a href="femme.html" class="boutonMenu">Femme</a></td>
-                    <td><a href="enfant.html" class="boutonMenu">Enfant</a></td>
-                    <td><a href="contact.html" class="boutonMenu">Contact</a></td>
-                </tr>
-            </table>
-        </header>
+        
+        <?php include 'php/header.php'; ?>
 
         <div class="bloc1">
             <div id="accueil">
@@ -50,25 +36,25 @@
                     <table>
                         <tr>
                             <td>
-                                <a href="air_force.html" class="chaussure">
+                                <a href="homme.html" class="chaussure">
                                     <img src="img/produit1.jpg" alt="produit 1">
                                     <h3>Air force one</h3>
                                 </a>
                             </td>
                             <td>
-                                <a href="homme.html" class="chaussure">
-                                    <img src="img/chaussure_classique.png" alt="produit 1">
+                                <a href="produits.php?cat=Homme" class="chaussure">
+                                    <img src="img/chaussure_classique .png" alt="produit 1">
                                     <h3>classique</h3>
                                 </a>
                             </td>
                             <td>
-                                <a href="femme.html" class="chaussure">
+                                <a href="produits.php?cat=Femme" class="chaussure">
                                     <img src="img/chaussure_runningf.png" alt="produit 1">
                                     <h3>nike running</h3>
                                 </a>
                             </td>
                             <td>
-                                <a href="enfant.html" class="chaussure">
+                                <a href="produits.php?cat=Enfant" class="chaussure">
                                     <img src="img/claquette.png" alt="produit 1">
                                     <h3>claquette</h3>
                                 </a>
@@ -79,6 +65,6 @@
             </section>
         </div>
     </body>    
-    <?php include 'footer.php'; ?>
-     </body>
+    <?php include 'php/footer.php'; ?>
+    </body>
 </html>
