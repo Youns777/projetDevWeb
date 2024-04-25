@@ -8,7 +8,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 25px 130px auto 130px;
+    grid-template-rows: 25px 130px auto 140px;
     grid-template-areas: "bandeau bandeau"
                         "Entete Entete"
                         "Lateral Principal"
@@ -191,17 +191,17 @@ select[name="taille"]:hover,
 select[name="taille"]:focus {
     border-color: #999;
 }
+.lien{
+    text-decoration: none;
+}
 
 /*######################## Footer #################################*/
 
 footer{
     text-align: center;
     color: white;
-    background:black;
+    background:rgb(0, 0, 0);
     grid-area: Bas_de_Page;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 footer img {

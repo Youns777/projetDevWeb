@@ -162,12 +162,12 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                 
                 <h3>Couleur</h3>
                 <?php foreach ($couleursUniques as $couleur): ?>
-                    <label><input type="checkbox" name="couleur[]" value="<?php echo $couleur; ?>" <?php echo in_array($couleur, $couleurs) ? 'checked' : ''; ?>> <?php echo ucfirst($couleur); ?></label><br>
+                    <label><input type="checkbox" name="couleur[]" value="<?php echo $couleur; ?>" <?php echo in_array($couleur, $couleurs) ? 'checked' : ''; ?>> <?php echo ucfirst($couleur); ?></label>
                 <?php endforeach; ?>
 
                 <h3>Type</h3>
                 <?php foreach ($typesUniques as $type): ?>
-                    <label><input type="checkbox" name="type[]" value="<?php echo $type; ?>" <?php echo in_array($type, $types) ? 'checked' : ''; ?>> <?php echo ucfirst($type); ?></label><br>
+                    <label><input type="checkbox" name="type[]" value="<?php echo $type; ?>" <?php echo in_array($type, $types) ? 'checked' : ''; ?>> <?php echo ucfirst($type); ?></label>
                 <?php endforeach; ?>
 
                 <input type="submit" value="Appliquer les filtres">
@@ -187,7 +187,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                     ?>
                         <td class="chaussure">
                             <img src="<?php echo $produit['Image']; ?>" alt="produit">
-                            <h3 class="titre_produit"><a href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $produit['Produit'] ; ?>"><?php echo $produit['Produit']; ?></a></h3>
+                            <h3 class="titre_produit"><a class="lien" href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $produit['Produit'] ; ?>"><?php echo $produit['Produit']; ?></a></h3>
                             <?php echo $produit['Prix']; ?>€<br>
                             Taille :
                             <form action='produits.php?cat=<?php echo $categorie; ?>' method="post">

@@ -204,6 +204,16 @@ small{
     margin-left: 600px;
     display: block; 
 }
+/* Style de l'icône de validation */
+.validation-icon {
+    color: green; /* Couleur de l'icône lorsque le champ est valide */
+    display: none; /* Par défaut, l'icône est masquée */
+    margin-left: 5px; /* Espacement entre l'icône et le champ */
+    font-size: 16px; /* Taille de l'icône */
+    position: absolute;
+}
+
+
 
 /*######################## Bloc Lateral #################################*/
 /* .bloc2{
