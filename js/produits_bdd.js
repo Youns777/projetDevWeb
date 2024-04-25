@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then((response) => response.text())
             .then((stock) => {
-                console.log(stock);
                 stockDisplay.innerHTML =
                 '<p class="line_stock">Stock disponible : ' + stock + "</p>";
                 button.textContent = "Cacher Stock";

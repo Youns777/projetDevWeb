@@ -148,7 +148,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/produits.css">
+    <link rel="stylesheet" href="../css/produits.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -161,7 +161,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
         Livraison Gratuite à partir de 50€ d'achats. Retour offert !
     </div>
 
-    <?php include 'php/header.php'; ?>
+    <?php include 'header.php'; ?>
     
     <aside>
         <h2>Filtres</h2>
@@ -198,7 +198,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                     foreach ($produits as $produit):
                     ?>
                         <td class="chaussure">
-                            <img src="<?php echo $produit['Image']; ?>" alt="produit">
+                            <img src="../<?php echo $produit['Image']; ?>" alt="produit">
                             <h3><a href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $produit['Produit'] ; ?>"><?php echo $produit['Produit']; ?></a></h3>
                             <?php echo $produit['Prix']; ?>€<br>
                             Taille :
@@ -270,7 +270,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
             </table>
         </section>
     </div>
-    <?php include 'php/footer.php'; ?>
+    <?php include 'footer.php'; ?>
         <script src="js/zoom.js"></script>
     </body>
 </html>

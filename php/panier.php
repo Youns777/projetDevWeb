@@ -6,8 +6,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Connexion à la base de données
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "phpmyadmin";
+$password = "cytech0001";
 $dbname = "shoptasneaker";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
