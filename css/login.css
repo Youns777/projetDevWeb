@@ -8,7 +8,7 @@ body{
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 6fr;
-  grid-template-rows: 25px 130px auto auto;
+  grid-template-rows: 25px 130px auto 140px;
   grid-template-areas: "bandeau bandeau"
                       "Entete Entete"
                       "Principal Principal"
@@ -237,7 +237,66 @@ small{
   margin-left: 185px;
   display: block; 
 }
-
+/* Style de l'icône de validation */
+.validation-icon {
+  color: green; /* Couleur de l'icône lorsque le champ est valide */
+  display: none; /* Par défaut, l'icône est masquée */
+  margin-left: 5px; /* Espacement entre l'icône et le champ */
+  font-size: 16px; /* Taille de l'icône */
+  position: absolute;
+}
+.Inscription{
+  background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+.Connexion{
+  background-color: rgba(175, 4, 4, 0.825);
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+.mettreajour{
+  background-color: rgba(175, 4, 4, 0.825);
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+.Déconnexion{
+  background-color: rgba(175, 4, 4, 0.825);
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4pxs
+}
 /*######################## Bloc Lateral #################################*/
 /* .bloc2{
   background-color: beige;

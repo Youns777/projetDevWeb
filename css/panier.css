@@ -199,8 +199,6 @@ footer{
     color: white;
     background:black;
     grid-area: Bas_de_Page;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     
    
@@ -284,50 +282,55 @@ aside form input[type="number"]:focus::placeholder {
 }
 
 .button {
-    display: inline-block;
-    padding: 10px 20px;
+    background-color: rgba(175, 4, 4, 0.825);
     color: white;
-    background-color: #007BFF;
+    padding: 8px 20px;
+    text-align: center;
     text-decoration: none;
-    border-radius: 5px;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
 }
-.button:hover {
-    background-color: #0056b3;
-}
+
 /* Bouton "Voir mes commandes" */
 a.button {
-    display: inline-block;
-    width: 200px; /* Ajout d'une largeur fixe */
-    height: 50px; /* Ajout d'une hauteur fixe */
-    line-height: 50px; /* Centrer le texte verticalement */
-    text-align: center; /* Centrer le texte horizontalement */
-    padding: 0; /* Suppression du padding */
+    background-color: rgba(175, 4, 4, 0.825);
     color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
+    padding: 8px 20px;
+    text-align: center;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    display: inline;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    float: inline-end;
 }
 
 a.button:hover {
-    background-color: #0056b3;
+    background-color: #7e3c3c;
 }
 
 /* Bouton "Valider commande" */
 input[type="submit"][name="validerCommande"] {
-    display: inline-block;
-    width: 200px; /* Ajout d'une largeur fixe */
-    height: 50px; /* Ajout d'une hauteur fixe */
-    line-height: 50px; /* Centrer le texte verticalement */
-    text-align: center; /* Centrer le texte horizontalement */
-    padding: 0; /* Suppression du padding */
+    background-color: rgba(175, 4, 4, 0.825);
     color: white;
-    background-color: #3cb916;
-    border: none;
-    border-radius: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 14px;
+    margin-top: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 4px;
+    float: inline-end;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 input[type="submit"][name="validerCommande"]:hover {
@@ -348,4 +351,8 @@ input[type="submit"][name="supprimerDuPanier"] {
 
 input[type="submit"][name="supprimerDuPanier"]:hover {
     background-color: #c82333;
+}
+.lien{
+    text-decoration: none;
+    color: black;
 }
