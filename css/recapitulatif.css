@@ -1,20 +1,16 @@
 /*######################## Body #################################*/
 
-body{
+body {
     font-family: Arial, sans-serif;
     margin: auto;
     background-color: #e3e3e3;
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 25px 130px auto 130px;
-    grid-template-areas: "bandeau bandeau"
-                        "Entete Entete"
-                        "Lateral Principal"
-                        "Bas_de_Page Bas_de_Page "
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
-
 /*######################## Bande Promo #################################*/
 .bandehaut{
     text-align: center;
@@ -194,16 +190,13 @@ select[name="taille"]:focus {
 
 /*######################## Footer #################################*/
 
-footer{
+footer {
     text-align: center;
     color: white;
     background:black;
     grid-area: Bas_de_Page;
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    
-   
+    margin-top: auto;
 }
 
 footer img {
@@ -283,69 +276,44 @@ aside form input[type="number"]:focus::placeholder {
     color: rgba(255, 255, 255, 1);
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    background-color: #007BFF;
-    text-decoration: none;
-    border-radius: 5px;
-}
-.button:hover {
-    background-color: #0056b3;
-}
-/* Bouton "Voir mes commandes" */
-a.button {
-    display: inline-block;
-    width: 200px; /* Ajout d'une largeur fixe */
-    height: 50px; /* Ajout d'une hauteur fixe */
-    line-height: 50px; /* Centrer le texte verticalement */
-    text-align: center; /* Centrer le texte horizontalement */
-    padding: 0; /* Suppression du padding */
-    color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.table-commande {
+    width: 90%; 
+    border-collapse: collapse;
+    margin: 20px auto; 
 }
 
-a.button:hover {
-    background-color: #0056b3;
+.table-commande th, .table-commande td {
+    border: 2px solid #272727; 
+    padding: 8px;
 }
 
-/* Bouton "Valider commande" */
-input[type="submit"][name="validerCommande"] {
-    display: inline-block;
-    width: 200px; /* Ajout d'une largeur fixe */
-    height: 50px; /* Ajout d'une hauteur fixe */
-    line-height: 50px; /* Centrer le texte verticalement */
-    text-align: center; /* Centrer le texte horizontalement */
-    padding: 0; /* Suppression du padding */
-    color: white;
-    background-color: #3cb916;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.table-commande th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #333; 
+    color: white; 
+}
+.commande-info h2, .commande p {
+    text-align: left;
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
 }
 
-input[type="submit"][name="validerCommande"]:hover {
-    background-color: #218838;
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Make the container take up the full width */
 }
 
-/* Bouton "Supprimer du panier" */
-input[type="submit"][name="supprimerDuPanier"] {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    background-color: #DC3545;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.commande-info {
+    text-align: left; /* Align the text to the left */
+    width: 100%; /* Make the text container take up the full width */
+    padding: 0 20px; /* Add some padding to the text container */
 }
 
-input[type="submit"][name="supprimerDuPanier"]:hover {
-    background-color: #c82333;
+.table-wrapper {
+    width: 100%; /* Make the table take up the full width */
 }

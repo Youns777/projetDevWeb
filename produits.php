@@ -4,16 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "shoptasneaker";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'php/bdd.php';
 
 // Récupérer la catégorie à afficher à partir de l'URL
 $categorie = $_GET['cat'] ?? '';
@@ -196,12 +187,15 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                     ?>
                         <td class="chaussure">
                             <img src="<?php echo $produit['Image']; ?>" alt="produit">
-                            <h3><a href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $produit['Produit'] ; ?>"><?php echo $produit['Produit']; ?></a></h3>
+                            <h3 class="titre_produit"><a href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $produit['Produit'] ; ?>"><?php echo $produit['Produit']; ?></a></h3>
                             <?php echo $produit['Prix']; ?>€<br>
                             Taille :
                             <form action='produits.php?cat=<?php echo $categorie; ?>' method="post">
                             <input type="hidden" name="nom" value="<?php echo $produit['Produit']; ?>">
-                            <select name="taille">
+                            
+                            <button type="button" class="voirstocktaille" id="voir-stock-<?php echo $produit['ID']; ?>" <?php echo isset($_SESSION['email']) ? '' : 'disabled'; ?>>Voir stock par taille</button>
+                            <br>
+                            <select name="taille" id="taille-<?php echo $produit['ID']; ?>">
                             <?php
                                 // Récupérer les tailles disponibles pour le produit
                                 $nomProduit = $produit['Produit'];
@@ -221,11 +215,11 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                                         $taille = $rowT['Taille'];
                                         $stock = $rowT['stock'];
 
-                                        echo '<option value="' . $taille . '">' . $taille . ' (Stock: ' . $stock . ')</option>';
-                                    }
+                                        echo '<option value="'. $taille .'" data-stock="'.$stock.'">'. $taille .'</option>';                                    }
                                 }
                                 ?>
                             </select><br>
+                            <span id="stock-<?php echo $produit['ID']; ?>"></span><br>
                             Quantité :
                             <select name="quantite" class="quantite">
                                 <option value="1">1</option>
@@ -241,7 +235,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
                                     <?php
                                     // Récupérer le stock pour chaque taille
                                     $stock = 0;
-                                    $sql_taille = "SELECT Taille, stock FROM chaussures WHERE nom='Nike Air Force 1' AND section='$categorie'";
+                                    $sql_taille = "SELECT Taille, stock FROM chaussures WHERE nom='$nomProduit' AND section='$categorie'";
                                     $result_taille = $conn->query($sql_taille);
                                     if($result_taille->num_rows > 0) {
                                         while ($rowT = $result_taille->fetch_assoc()) {
@@ -269,6 +263,7 @@ $produits = array_filter($produits, function($produit) use ($minPrix, $maxPrix, 
     </div>
     <?php include 'php/footer.php'; ?>
         <script src="js/zoom.js"></script>
+        <script src="js/afficher_stock.js"></script>
     </body>
 </html>
 

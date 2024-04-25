@@ -5,7 +5,7 @@ let form = document.querySelector("#inscription_form");
 let nomInput = document.querySelector('input[name="nom"]');
 let prenomInput = document.querySelector('input[name="prenom"]');
 let emailInput = document.querySelector('input[name="email"]');
-let dateNaissanceInput = document.querySelector('input[name="Date de Naissance"]');
+let dateNaissanceInput = document.querySelector('input[name="Date_Naissance"]');
 let passwordInput = document.querySelector('input[name="password"]');
 let adresseInput = document.querySelector('input[name="adresse"]');
 

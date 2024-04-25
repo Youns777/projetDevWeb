@@ -1,3 +1,42 @@
+<?php
+// Démarrez la session si elle n'a pas déjà été démarrée
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+include 'php/bdd.php';
+
+// Vérifiez si le formulaire de contact a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $dateNaissance = $_POST['DateDeNaissance'];
+
+    // Récupérer les informations du client
+    $sql = "SELECT * FROM clients WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_SESSION['email']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $client = $result->fetch_assoc();
+
+    // Vérifiez si les informations du formulaire correspondent à celles du client
+    if ($nom === $client['nom'] && $prenom === $client['prenom'] && $email === $client['email'] && $dateNaissance === $client['date_naissance']) {
+        // Obtenir la date actuelle
+        $dateDuContact = date('Y-m-d');
+
+        // Insérer les informations du formulaire dans la table 'formulaire'
+        $sql = "INSERT INTO formulaire (date_contact, nom, prenom, email, genre, date_naissance, fonction, sujet, contenu) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssssssss", $dateDuContact, $nom, $prenom, $email, $_POST['genre'], $dateNaissance, $_POST['fonction'], $_POST['Sujet'], $_POST['Contenu']);
+        $stmt->execute();
+    } else {
+        echo "Les informations du formulaire ne correspondent pas à celles du client.";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,9 +56,6 @@
         <h2 class="titreformulaire">Demande de Contact</h2>
         
         <form action="" method="post" id="contactForm">
-            <label for="DateDuContact">Date du contact :</label>
-            <input type="date" name="DateDuContact" id="DateDuContact"> <br>
-            
             <label for="nom">Nom :</label>    
             <input type="text" name="nom" placeholder="Entrez votre Nom"> <br>
             <small id="nom_small"></small><br>

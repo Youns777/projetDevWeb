@@ -199,7 +199,9 @@ footer{
     color: white;
     background:black;
     grid-area: Bas_de_Page;
-   
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 footer img {
@@ -277,4 +279,35 @@ aside form input[type="number"]::placeholder {
 
 aside form input[type="number"]:focus::placeholder {
     color: rgba(255, 255, 255, 1);
+}
+/* Retirer le soulignement des liens */
+.titre_produit a {
+    text-decoration: none;
+}
+
+/* Désactiver le changement de couleur des liens visités */
+.titre_produit a:visited {
+    color: inherit; /* La couleur du lien visité sera la même que celle du lien normal */
+}
+/* Désactiver la couleur par défaut des liens */
+.titre_produit a {
+    color: inherit; /* La couleur du lien sera la même que celle du texte */
+}
+
+button.voirstocktaille {
+    background-color: #a34100; /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    color: white; /* Couleur du texte */
+    padding: 5px 28px; /* Espacement intérieur */
+    text-align: center; /* Alignement du texte */
+    text-decoration: none; /* Pas de soulignement */
+    display: inline-block; /* Affichage en ligne */
+    font-size: 12px; /* Taille de la police */
+    margin: 4px 2px; /* Marge extérieure */
+    cursor: pointer; /* Curseur en forme de main */
+    transition-duration: 0.4s; /* Durée de la transition */
+}
+
+button.voirstocktaille:hover {
+    background-color: #e71e10; /* Couleur de fond au survol */
 }

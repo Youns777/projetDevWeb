@@ -1,16 +1,7 @@
 <?php
 session_start();
 
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "shoptasneaker";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'php/bdd.php';
 
 // Récupérer la catégorie et l'ID du produit à afficher à partir de l'URL
 $categorie = $_GET['cat'] ?? '';
