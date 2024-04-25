@@ -3,7 +3,6 @@
 // Démarrez la session si elle n'a pas déjà été démarrée
 session_start();
 
-
 //Connexion à la base de données
 $servername = "localhost";
 $username = "root";
@@ -26,30 +25,20 @@ $password = $_POST['password'] ?? '';
 //Vérifier si le formulaire est soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit_inscription'])) {
-        //Vérifier si les champs sont remplis
-        if ($nom === '' || $prenom === '' || $email === '' || $adresse === '' || $dateNaissance === '' || $password === '') {
-            echo 'Veuillez remplir tous les champs';
+        //Vérifier si l'email existe déjà
+        $sql = "SELECT * FROM clients WHERE email = '$email'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            echo 'Email déjà utilisé';
         } else {
-            //Vérifier si l'email est valide
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo 'Email invalide';
+            //Ajouter l'utilisateur à la base de données
+            $sql = "INSERT INTO clients (nom, prenom, email, mot_de_passe, adresse, date_naissance, role) VALUES (?, ?, ?, ?, ?, ?, 0)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ssssss", $nom, $prenom, $email, $password, $adresse, $dateNaissance);
+            if ($stmt->execute()) {
+                echo 'Utilisateur ajouté avec succès';
             } else {
-                //Vérifier si l'email existe déjà
-                $sql = "SELECT * FROM clients WHERE email = '$email'";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    echo 'Email déjà utilisé';
-                } else {
-                    //Ajouter l'utilisateur à la base de données
-                    $sql = "INSERT INTO clients (nom, prenom, email, mot_de_passe, adresse, date_naissance, role) VALUES (?, ?, ?, ?, ?, ?, 0)";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("ssssss", $nom, $prenom, $email, $password, $adresse, $dateNaissance);
-                    if ($stmt->execute()) {
-                        echo 'Utilisateur ajouté avec succès';
-                    } else {
-                        echo 'Erreur: ' . $stmt->error;
-                    }
-                }
+                echo 'Erreur: ' . $stmt->error;
             }
         }
     } elseif (isset($_POST['submit_connexion'])) {
@@ -64,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($result->num_rows > 0) {
                     //Vérifier si le mot de passe est correct
                     $row = $result->fetch_assoc();
-                    if ($row['mot_de_passe'] === $password) {
+                    if ($password === $row['mot_de_passe']) {
                         $_SESSION['email'] = $email;
                         $_SESSION['role'] = $row['role'];
                         echo 'Connexion réussie';
@@ -81,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -101,11 +89,69 @@ $conn->close();
         <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
         <?php include 'php/header.php'; ?>
         <?php if (isset($_SESSION['email'])): ?>
-        <p>Bonjour, <?= $_SESSION['email'] ?></p>
-        <form action="index.php?logout=true" method="post">
-            <input type="submit" value="Déconnexion">
-        </form>
-        <?php else: ?>
+    <p>Bonjour, <?= $_SESSION['email'] ?></p>
+    <form action="index.php?logout=true" method="post">
+        <input type="submit" value="Déconnexion">
+    </form>
+
+    <?php
+    // Récupérer les informations actuelles de l'utilisateur
+    $sql = "SELECT * FROM clients WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_SESSION['email']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    ?>
+
+    <form action="" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" name="nom" value="<?= $user['nom'] ?>">
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" name="prenom" value="<?= $user['prenom'] ?>">
+
+        <label for="email">Email :</label>
+        <input type="email" name="email" value="<?= $user['email'] ?>">
+
+        <label for="adresse">Adresse :</label>
+        <input type="text" name="adresse" value="<?= $user['adresse'] ?>">
+
+        <label for="Date_Naissance">Date de Naissance :</label>
+        <input type="date" name="Date_Naissance" value="<?= $user['date_naissance'] ?>">
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password">
+
+        <input type="submit" name="submit_update" value="Mettre à jour">
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_update'])) {
+        // Récupérer les données du formulaire
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $email = $_POST['email'];
+        $adresse = $_POST['adresse'];
+        $dateNaissance = $_POST['Date_Naissance'];
+        $password = $_POST['password'];
+    
+        // Hacher le mot de passe
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    
+        // Mettre à jour les informations de l'utilisateur
+        $sql = "UPDATE clients SET nom = ?, prenom = ?, email = ?, adresse = ?, date_naissance = ?, mot_de_passe = ? WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssssss", $nom, $prenom, $email, $adresse, $dateNaissance, $hashedPassword, $_SESSION['email']);
+        if ($stmt->execute()) {
+            echo 'Informations mises à jour avec succès';
+            $_SESSION['email'] = $email;  // Mettre à jour l'email dans la session si l'email a été modifié
+        } else {
+            echo 'Erreur: ' . $stmt->error;
+        }
+    }
+    ?>
+<?php else: ?>
         <div class="bloc1">
             <h2 class="titreformulaire">Bienvenue au royaume de la sneakers !</h2>
             <div class="container">
@@ -159,11 +205,11 @@ $conn->close();
                 </div>
             </div>
         </div>
-        <script src="js/login_verif.js"></script>
+        <!-- <script src="js/login_verif.js"></script> -->
         <?php endif; ?>
     </body>
     
-
+    <?php $conn->close(); ?>
     <?php include 'php/footer.php'; ?>
 </html>
     

@@ -17,6 +17,58 @@ if ($conn->connect_error) {
 
 $mailClient = $_SESSION['email'] ?? '';
 
+// Récupérer l'ID du client
+$sql = "SELECT id_client FROM clients WHERE email = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $mailClient);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+if ($row) {
+    $idClient = $row['id_client'];
+} else {
+    $idClient = NULL;
+}
+
+// Pour chaque produit dans le panier
+$sql = "SELECT * FROM panier WHERE id_client = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $idClient);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$erreur = false; // Ajouter une variable pour suivre si une erreur s'est produite
+$messageErreur = ""; // Ajouter une variable pour stocker le message d'erreur
+
+while ($row = $result->fetch_assoc()) {
+    $idChaussure = $row['id_chaussure'];
+    $quantite = $row['quantite'];
+    $taille = $row['Taille'];
+
+    // Vérifiez si id_chaussure est NULL
+    if ($idChaussure === NULL) {
+        echo "Erreur : id_chaussure est NULL pour le produit dans le panier";
+        continue;
+    }
+
+    // Vérifiez si la quantité du produit dans le panier est inférieure ou égale au stock du produit
+    $sql = "SELECT stock, nom FROM chaussures WHERE id_chaussure = ? AND Taille = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $idChaussure, $taille);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $chaussure = $result->fetch_assoc();
+    $stock = $chaussure['stock'];
+    $nomChaussure = $chaussure['nom'];
+
+    if ($quantite > $stock) {
+        $erreur = true; // Mettre à jour la variable d'erreur
+        $messageErreur = "Erreur : la quantité de la chaussure '$nomChaussure' taille $taille dans le panier est supérieure au stock du produit. Le stock est de " . $stock;
+        break;
+    }
+}
+
 // Vérifiez si le formulaire de suppression a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idPanier'])) {
     $idPanier = $_POST['idPanier'];
@@ -28,9 +80,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idPanier'])) {
     $stmt->execute();
 
     // Rediriger l'utilisateur vers la page du panier
-    header('Location: panier.php');
+    header("Location: panier.php");
     exit;
 }
+
+// Vérifiez si le formulaire de validation de commande a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['validerCommande'])) {
+    if ($erreur) {
+        echo $messageErreur;
+    } else {
+    // Créer une nouvelle commande
+    $sql = "INSERT INTO commandes (id_client, date_commande) VALUES (?, NOW())";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idClient);
+    $stmt->execute();
+
+    // Récupérer l'ID de la commande
+    $idCommande = $conn->insert_id;
+
+    // Pour chaque produit dans le panier
+    $sql = "SELECT * FROM panier WHERE id_client = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idClient);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+        $idChaussure = $row['id_chaussure'];
+        $quantite = $row['quantite'];
+        $taille = $row['Taille'];
+    
+        // Vérifiez si id_chaussure est NULL
+        if ($idChaussure === NULL) {
+            echo "Erreur : id_chaussure est NULL pour le produit dans le panier";
+            continue;
+        }
+    
+        // Créer une nouvelle ligne de commande
+        $sql = "INSERT INTO ligne_commandes (id_commande, id_chaussure, quantite, taille) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iiii", $idCommande, $idChaussure, $quantite, $taille);
+        $stmt->execute();
+    
+        // Mettre à jour le stock du produit
+        $sql = "UPDATE chaussures SET stock = stock - ? WHERE id_chaussure = ? AND Taille = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iii", $quantite, $idChaussure, $taille);
+        $stmt->execute();
+    }
+
+    // Supprimer tous les produits du panier du client
+    $sql = "DELETE FROM panier WHERE id_client = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idClient);
+    $stmt->execute();
+
+    // Rediriger l'utilisateur vers la page de récapitulatif de commande
+    header('Location: recapitulatif.php?idCommande=' . $idCommande);
+    exit;
+}
+}
+
 
 
 //Recuperer le nom de la categorie
@@ -93,13 +203,11 @@ $categorie = $_GET['cat'] ?? '';
                                 Prix : <?php echo $prix; ?>€<br>
                                 <form action="panier.php" method="post">
                                     <input type="hidden" name="idPanier" value="<?php echo $idPanier; ?>">
-                                    <input type="submit" value="Supprimer du panier">
+                                    <input type="submit" name="supprimerDuPanier" value="Supprimer du panier">
                                 </form>
                             </td>
                             <?php
                         }
-                    } else {
-                        echo 'Votre panier est vide';
                     }
                             
                     ?>
@@ -108,6 +216,32 @@ $categorie = $_GET['cat'] ?? '';
         <?php else: ?>
             <p> >>> Vous devez vous connecter pour accéder à votre panier. <<< </p>
         <?php endif; ?>
+        <?php if (isset($_SESSION['email'])): ?>
+            <?php
+                // Vérifiez si le panier est vide
+                $sql = "SELECT COUNT(*) as count FROM panier WHERE id_client = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $idClient);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $row = $result->fetch_assoc();
+                $panierCount = $row['count'];
+
+                if ($panierCount > 0): ?>
+                    <?php if (!$erreur): ?>
+                        <form action="panier.php" method="post">
+                            <input type="submit" name="validerCommande" value="Valider commande">
+                        </form>
+                    <?php else: ?>
+                        <p><?php echo $messageErreur; ?></p>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <p>Votre panier est vide. Ajoutez des produits avant de valider la commande.</p>
+                <?php endif; ?>
+                <a href="recapitulatif.php" class="button">Voir mes commandes</a>
+        <?php endif; ?>
+
+    
     </section>
     </div>
 

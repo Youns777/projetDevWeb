@@ -5,8 +5,12 @@ let form = document.querySelector("#inscription_form");
 let nomInput = document.querySelector('input[name="nom"]');
 let prenomInput = document.querySelector('input[name="prenom"]');
 let emailInput = document.querySelector('input[name="email"]');
+<<<<<<< HEAD
 let adresseInput = document.querySelector('input[name="adresse"]');
 let dateNaissanceInput = document.querySelector('input[name="Date de Naissance"]');
+=======
+let dateNaissanceInput = document.querySelector('input[name="Date_Naissance"]');
+>>>>>>> 3cfc5171a8fe80e7eda678fa828f15fd4cf6436e
 let passwordInput = document.querySelector('input[name="password"]');
 
 // Ajout des écouteurs d'événements pour la validation des champs
