@@ -52,13 +52,13 @@ if (isset($_GET['logout'])) {
                             </td>
                             <td>
                                 <a href="produits.php?cat=Homme" class="chaussure">
-                                    <img src="img/chaussure_classique.png" alt="produit 1">
-                                    <h3>classique</h3>
+                                    <img src="img/chaussure7.jpg" alt="produit 1">
+                                    <h3>Bottes</h3>
                                 </a>
                             </td>
                             <td>
                                 <a href="produits.php?cat=Femme" class="chaussure">
-                                    <img src="img/chaussure_runningf.png" alt="produit 1">
+                                    <img src="img/chaussure5.jpg" alt="produit 1">
                                     <h3>nike running femme</h3>
                                 </a>
                             </td>

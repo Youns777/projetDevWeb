@@ -1,42 +1,4 @@
-// Sélection du formulaire
-let form = document.querySelector("#inscription_form");
-
-// Sélection des champs du formulaire
-let nomInput = document.querySelector('input[name="nom"]');
-let prenomInput = document.querySelector('input[name="prenom"]');
-let emailInput = document.querySelector('input[name="email"]');
-<<<<<<< HEAD
-let adresseInput = document.querySelector('input[name="adresse"]');
-let dateNaissanceInput = document.querySelector('input[name="Date de Naissance"]');
-=======
-let dateNaissanceInput = document.querySelector('input[name="Date_Naissance"]');
->>>>>>> 3cfc5171a8fe80e7eda678fa828f15fd4cf6436e
-let passwordInput = document.querySelector('input[name="password"]');
-
-// Ajout des écouteurs d'événements pour la validation des champs
-nomInput.addEventListener('input', function() {
-    validNom(this.value);
-});
-
-prenomInput.addEventListener('input', function() {
-    validPrenom(this.value);
-});
-
-emailInput.addEventListener('input', function() {
-    validEmail(this.value);
-});
-
-adresseInput.addEventListener('input', function() {
-    validAdresse(this.value);
-});
-
-dateNaissanceInput.addEventListener('input', function() {
-    validDateNaissance(this.value);
-});
-
-passwordInput.addEventListener('input', function() {
-    validPassword(this.value);
-});
+// Définir les fonctions de validation ici
 
 // Fonction de validation de l'email
 const validEmail = function(inputEmail) {
@@ -150,7 +112,7 @@ const validPassword = function(inputPassword) {
     
     if (!passwordRegex.test(inputPassword)) {
         // Si le mot de passe ne correspond pas aux critères
-        let errorMessage = "Le mot de passe doit respecter les critères suivants :<br>";
+        let errorMessage = "Le mot de passe doit respecter les critères suivants :"
         errorMessage += "- Au moins 1 lettre majuscule et minuscule<br>";
         errorMessage += "- Au moins 1 chiffre<br>";
         errorMessage += "- Au moins 1 caractère spécial parmi !@#$%^&*()<br>";
@@ -160,13 +122,14 @@ const validPassword = function(inputPassword) {
         passwordSmall.classList.remove('text-success');
         passwordSmall.classList.add('text-danger');
         return false;
-    } else {
-        small.innerHTML = '';
-        small.classList.remove('text-danger');
-        small.classList.add('text-success');
+    }else {
+        passwordSmall.innerHTML = '';
+        passwordSmall.classList.remove('text-danger');
+        passwordSmall.classList.add('text-success');
         icon.style.display = 'inline';
         return true;
     }
+    
 };
 
 // Fonction de validation de l'adresse
@@ -192,6 +155,42 @@ const validAdresse = function(inputAdresse) {
     }
 };
 
+// Sélection du formulaire
+let form = document.querySelector("#inscription_form");
+
+// Sélection des champs du formulaire
+let nomInput = document.querySelector('input[name="nom"]');
+let prenomInput = document.querySelector('input[name="prenom"]');
+let emailInput = document.querySelector('input[name="email"]');
+let adresseInput = document.querySelector('input[name="adresse"]');
+let dateNaissanceInput = document.querySelector('input[name="Date de Naissance"]');
+let passwordInput = document.querySelector('input[name="password"]');
+
+// Ajout des écouteurs d'événements pour la validation des champs
+nomInput.addEventListener('input', function() {
+    validNom(this.value);
+});
+
+prenomInput.addEventListener('input', function() {
+    validPrenom(this.value);
+});
+
+emailInput.addEventListener('input', function() {
+    validEmail(this.value);
+});
+
+adresseInput.addEventListener('input', function() {
+    validAdresse(this.value);
+});
+
+dateNaissanceInput.addEventListener('input', function() {
+    validDateNaissance(this.value);
+});
+
+passwordInput.addEventListener('input', function() {
+    validPassword(this.value);
+});
+
 // Gestionnaire d'événements pour la soumission du formulaire
 form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -206,7 +205,7 @@ form.addEventListener('submit', function(event) {
 
     // Si tous les champs sont valides, soumettre le formulaire
     if (emailValide && nomValide && prenomValide && dateNaissanceValide && passwordValide && adresseValide) {
-        alert("Inscription effectué  !");
+        alert("Inscription effectué !");
         form.submit();
     } else {
         alert("Veuillez remplir correctement tous les champs du formulaire.");

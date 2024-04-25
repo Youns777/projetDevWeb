@@ -197,7 +197,7 @@ $categorie = $_GET['cat'] ?? '';
                             ?>
                             <td class="chaussure">
                                 <img src="<?php echo $image; ?>" alt="produit">
-                                <h3><a href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $nomProduit; ?>"><?php echo $nomProduit; ?></a></h3>
+                                <h3><a class="lien" href="infobox.php?cat=<?php echo $categorie; ?>&nom=<?php echo $nomProduit; ?>"><?php echo $nomProduit; ?></a></h3>
                                 Taille : <?php echo $taille; ?><br>
                                 Quantité : <?php echo $quantite; ?><br>
                                 Prix : <?php echo $prix; ?>€<br>

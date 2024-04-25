@@ -89,10 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="bandehaut">Livraison Gratuite à partir de 50€ d'achats. Retour offert !</div>
         <?php include 'php/header.php'; ?>
         <?php if (isset($_SESSION['email'])): ?>
+            <div class="bloc1">
     <p>Bonjour, <?= $_SESSION['email'] ?></p>
-    <form action="index.php?logout=true" method="post">
-        <input type="submit" value="Déconnexion">
-    </form>
+    
 
     <?php
     // Récupérer les informations actuelles de l'utilisateur
@@ -107,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="" method="post">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" value="<?= $user['nom'] ?>">
+        
 
         <label for="prenom">Prénom :</label>
         <input type="text" name="prenom" value="<?= $user['prenom'] ?>">
@@ -121,11 +121,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="date" name="Date_Naissance" value="<?= $user['date_naissance'] ?>">
 
         <label for="password">Mot de passe :</label>
-        <input type="password" name="password">
+        <input type="password" name="password"><br>
 
-        <input type="submit" name="submit_update" value="Mettre à jour">
+        <input type="submit" class=mettreajour name="submit_update" value="Mettre à jour">
     </form>
-
+    <form action="index.php?logout=true" method="post">
+        <input type="submit" value="Déconnexion" class="Déconnexion">
+    </form>
+        </div>
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_update'])) {
         // Récupérer les données du formulaire
@@ -158,28 +161,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form_inscription">   
                     <form action="" method="post" id="inscription_form">
                         <label for="nom" > Nom : </label>    
-                        <input type="text" name="nom" placeholder="Entrez votre Nom"/> <br>
-                        <small id="nom_small"></small><br>
+                        <input type="text" name="nom" placeholder="Entrez votre Nom"/>
+                        <span id="nom_icon" class="validation-icon">✓</span>
+                        <br>
+                        <small id="nom_small"></small>
 
                         <label for="Prenom" > Prénom : </label>    
-                        <input type="text" name="prenom" placeholder="Entrez votre Prenom"/> <br>
-                        <small id="prenom_small"></small><br>
+                        <input type="text" name="prenom" placeholder="Entrez votre Prenom"/>
+                        <span id="prenom_icon" class="validation-icon">✓</span>
+                        <br>
+                        <small id="prenom_small"></small>
 
                         <label for="email" > Email : </label>    
-                        <input type="text" name="email" placeholder="monmail@monsite.org"/> <br>
-                        <small id="email_small"></small><br>
+                        <input type="text" name="email" placeholder="monmail@monsite.org"/> 
+                        <span id="email_icon" class="validation-icon">✓</span>
+                        <br>
+                        <small id="email_small"></small>
 
                         <label for="Adresse" > Adresse : </label>    
-                        <input type="text" name="adresse" placeholder="Entrez votre adresse"/> <br>
-                        <small id="adresse_small"></small><br>
+                        <input type="text" name="adresse" placeholder="Entrez votre adresse"/>
+                        <span id="adresse_icon" class="validation-icon">✓</span>
+                        <br>
+                        <small id="adresse_small"></small>
 
                         <label for="Date_Naissance" > Date de Naissance : </label>
-                        <input type="date" name="Date_Naissance"/> <br>
-                        <small id="dateNaissance_small"></small><br>
+                        <input type="date" name="Date_Naissance"/> 
+                        <span id="dateNaissance_icon" class="validation-icon">✓</span>
+                        <br>
+                        <small id="dateNaissance_small"></small>
 
                         <label for="Mot_passe" name="password">Mot de passe : </label>
-                        <input type="password" name="password" placeholder="******"/> <br>
-                        <small id="password_small"></small><br>
+                        <input type="password" name="password" placeholder="******"/>
+                        <span id="password_icon" class="validation-icon">✓</span>
+                        <br>
+                        <small id="password_small"></small>
 
 
                         <input type="submit" name="submit_inscription" value="Inscription" class="Inscription"/>
@@ -205,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </div>
-        <!-- <script src="js/login_verif.js"></script> -->
+        <script src="js/login_verif.js"></script>
         <?php endif; ?>
     </body>
     

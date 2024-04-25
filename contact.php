@@ -1,4 +1,49 @@
-<!DOCTYPE html>
+<?php
+
+// Connexion à la base de données
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "shoptasneaker";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Récupérer les données du formulaire
+$nom = $_POST['nom'] ?? '';
+$prenom = $_POST['prenom'] ?? '';
+$date_de_naissance = $_POST['DateDuContact'] ?? '';
+$date_de_contact = $_POST['email'] ?? '';
+$sujet = $_POST['sujet'] ?? '';
+$genre = $_POST['genre'] ?? '';
+$contenu = $_POST['contenu'] ?? '';
+$fonction = $_POST['fonctiion'] ?? '';
+
+
+// Ajoutez ici les autres champs du formulaire que vous souhaitez enregistrer dans la base de données
+
+// Vérifier si le formulaire est soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['Envoyer'])) {
+        // Insérer les données dans la base de données
+        $sql = "INSERT INTO formulaire (date_contact,nom,prenom,email,genre,date_naissance,fonction,sujet,contenu) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssssssss",$date_de_contact,$nom, $prenom, $email ,$genre,$date_de_naissance,$fonction,$sujet,$contenu);
+        if ($stmt->execute()) {
+            echo 'Formulaire envoyé avec succès';
+        } else {
+            echo 'Erreur lors de l\'envoi du formulaire: ' . $stmt->error;
+        }
+    }
+}
+
+// Fermer la connexion à la base de données
+$conn->close();
+
+?>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -38,11 +83,11 @@
             <span id="email_icon" class="validation-icon">✓</span>
             <br>
             <small id="email_small"></small>
-            
+            <div class=genr>
             <label for="genre">Genre :</label>
             <input type="radio" name="genre" value="Homme"> Homme
             <input type="radio" name="genre" value="Femme"> Femme <br>
-            <small id="genre_small"></small>
+            <small id="genre_small"></small></div>
             
             <label for="DateDeNaissance">Date de Naissance :</label>
             <input type="date" name="DateDeNaissance" id="DateDeNaissance">
