@@ -6,14 +6,17 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Connexion à la base de données
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "phpmyadmin";
+$password = "cytech0001";
 $dbname = "shoptasneaker";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+$conn->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
+
 
 // Récupérer la catégorie à afficher à partir de l'URL
 $categorie = $_GET['cat'] ?? '';
@@ -89,7 +92,7 @@ if ($result->num_rows > 0) {
 
 
 // Récupérer les produits de la catégorie
-$sql = "SELECT * FROM chaussures WHERE section = '$categorie' GROUP BY nom";
+$sql = "SELECT * FROM chaussures WHERE section = '$categorie' GROUP BY nom"; 
 $result = $conn->query($sql);
 
 $produits = [];
