@@ -1,4 +1,3 @@
-// Définir les fonctions de validation ici
 
 // Fonction de validation de l'email
 const validEmail = function(inputEmail) {
@@ -121,14 +120,16 @@ const validPassword = function(inputPassword) {
         passwordSmall.innerHTML = errorMessage;
         passwordSmall.classList.remove('text-success');
         passwordSmall.classList.add('text-danger');
+        icon.style.display = 'none'; // Masquer l'icône
         return false;
     }else {
         passwordSmall.innerHTML = '';
         passwordSmall.classList.remove('text-danger');
         passwordSmall.classList.add('text-success');
-        icon.style.display = 'inline';
+        icon.style.display = 'inline'; // Afficher l'icône
         return true;
     }
+    
     
 };
 
@@ -147,13 +148,14 @@ const validAdresse = function(inputAdresse) {
         adresseSmall.classList.add('text-danger');
         return false;
     } else {
-        small.innerHTML = '';
-        small.classList.remove('text-danger');
-        small.classList.add('text-success');
+        adresseSmall.innerHTML = '';
+        adresseSmall.classList.remove('text-danger');
+        adresseSmall.classList.add('text-success');
         icon.style.display = 'inline';
         return true;
     }
 };
+
 
 // Sélection du formulaire
 let form = document.querySelector("#inscription_form");
@@ -211,3 +213,4 @@ form.addEventListener('submit', function(event) {
         alert("Veuillez remplir correctement tous les champs du formulaire.");
     }
 });
+
